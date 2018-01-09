@@ -1,0 +1,10 @@
+
+
+learn flask uploading flie commands.
+check os commands for saving and reading files
+if file as table named address:
+
+    else:
+      print('File has no table named address')
+
+learn abour flask @app.route('/'  methods) what methods exist and what do they do ?
