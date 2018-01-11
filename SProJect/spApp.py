@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for
 import os
 
-UPLOAD_FOLDER='/' # Do i need this ??
-ALLOWED_EXTENSIONS = set(['txt','json','csv']) # Do i need this ??
+UPLOAD_FOLDER='C:\\Users\\Ira\\Desktop' # Do i need this ??
+ALLOWED_EXTENSIONS = set(['txt','json','csv', 'py']) # Do i need this ??
 
 app=Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -11,13 +11,22 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def index():
     return render_template("index.html")
 
-@app.route("/templates/succcess", methods=['POST', 'GET'])
+@app.route("/templates/succcess", methods=['POST'])
 def  upload():
+    print("==== upload()")
     if request.method=='POST':
-        data=request.form['data']
-        if data.rsplit('.',1)[1] in ALLOWED_EXTENSIONS:
-            data.save(os.path.join(app.config['UPLOAD_FOLDER'], data))
-            return render_tempalte("success.html")
+        print("==== POST")
+        data = request.files['data']
+        print(data)
+
+        if '.' in data.filename and data.filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS:
+            print("==== data.save()")
+            data.save(os.path.join(app.config['UPLOAD_FOLDER'], data.filename))
+            #return render_tempalte("success.html")
+            print("==== redirect()")
+            return redirect(url_for("index"))
+        else:
+            print("==== if did not work")
 
 
 if __name__=='__main__':

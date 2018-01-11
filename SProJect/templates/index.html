@@ -8,9 +8,9 @@
     <div class="container">
       <h1> Geocoding your Addresses </h1>
       <h3> Please upload your csv file with a column named Address so we can provide you with the coodrinates. </h3>
-      <form methods="POST", "GET">
+      <form method="POST" action="/templates/succcess" enctype="multipart/form-data">
         <input title="Address containing csv file" type="file" name="data" required> <!-- diffrent types of input for different input there is no input button-->
-        <input type="submit" value="Submit" name="data">
+        <input type="submit" value="Upload">
     </div>
   </body>
 </html>
