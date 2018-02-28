@@ -3,8 +3,15 @@ from models.post import Post
 
 Database.initialize()
 
-post=Post("Post1 title", "Post1 content", "Post1 author")
-post2=Post("Post2 title", "Post2 content", "Post2 author")
+blog=Blog(author="Ira",
+          title="Something
+          description="Sample")
 
-print(post.content)
-print(post2.content)
+
+blog.new_post()
+
+blog.save_to_mongo()
+
+blog.from_mongo()
+
+blog.get_posts() #Post.fron_blog (id)
