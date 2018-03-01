@@ -1,10 +1,10 @@
 from database import Database
-from models.post import Post
+from models.blog import Blog
 
 Database.initialize()
 
 blog=Blog(author="Ira",
-          title="Something
+          title="Something",
           description="Sample")
 
 
@@ -12,6 +12,6 @@ blog.new_post()
 
 blog.save_to_mongo()
 
-blog.from_mongo()
+from_database = Blog.from_mongo(blog.id)
 
-blog.get_posts() #Post.fron_blog (id)
+print(blog.get_posts()) #Post.fron_blog (id)

@@ -15,11 +15,15 @@ class Blog():
         title = input("Enter post title: ")
         content = input("Enter post content: ")
         date = input("Enter post date, or leave blank for today (in format DDMMYYYY): ")
+        if data =="":
+            date = datetime.datetime.now()
+        else:
+            date = datetime.datetime.strptime(date,"%d%m%Y"))
         post = Post(blog_id =self.id,
                     author = self.author,
                     title = title,
                     content = content,
-                    date = datetime.datetime.strptime(date,"%d%m%Y"))
+                    date = date)
 
         post.save_to_mongo()
 
@@ -41,7 +45,7 @@ class Blog():
 
     @classmethod
     def from_mongo(cls, id):
-        blog_data=Database.fine_one(collection='blogs', query={'id':id})
+        blog_data=Database.find_one(collection='blogs', query={'id':id})
 
         return cls(author=blog_data['author'],
                     title=blog_data['title'],

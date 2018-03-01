@@ -15,8 +15,8 @@ class Blog():
         title = input("Enter post title: ")
         content = input("Enter post content: ")
         date = input("Enter post date, or leave blank for today (in format DDMMYYYY): ")
-        post = Post(blog_id =self.id,
-                    author = self.author,
+        post = Post(blog_id =s elf.id,
+                    author = self.author
                     title = title,
                     content = content,
                     date = datetime.datetime.strptime(date,"%d%m%Y"))
@@ -33,10 +33,10 @@ class Blog():
 
     def json(self):
         return {
-            'author':self.author,
-            'title':self.title,
-            'description':self.description,
-            'id':self.id
+            'author'=self.author,
+            'title'=self.title,
+            'description'=self.description,
+            'id'=self.id
         }
 
     @classmethod
