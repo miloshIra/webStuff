@@ -15,10 +15,10 @@ class Blog():
         title = input("Enter post title: ")
         content = input("Enter post content: ")
         date = input("Enter post date, or leave blank for today (in format DDMMYYYY): ")
-        if data =="":
+        if date == "":
             date = datetime.datetime.now()
         else:
-            date = datetime.datetime.strptime(date,"%d%m%Y"))
+            date = datetime.datetime.strptime(date,"%d%m%Y")
         post = Post(blog_id =self.id,
                     author = self.author,
                     title = title,

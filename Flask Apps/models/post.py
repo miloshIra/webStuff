@@ -34,8 +34,8 @@ class Post(object):
         author=post_data['author'],
         date=post_data['created_date'],
         id=post_data['id'])
-        
+
 
     @staticmethod
     def from_blog(id):
-        return [post for post in Database.find(collecton='posts', query={'blog_id':id})]
+        return [post for post in Database.find(collection='posts', query={'blog_id':id})]
