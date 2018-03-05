@@ -1,5 +1,6 @@
-from src.common.database import Database
-from flask.session import session
+from common.database import Database
+from flask import Flask, session
+import datetime
 
 
 class User(object):
@@ -51,6 +52,20 @@ class User(object):
     @staticmethod
     def logout():
         session['email'] = None
+
+    def new_blog(self, title, description):
+        blog = Blog(author=self.email,
+            title=title,
+            description=description,
+            author_id=self._id)
+
+        blog.save_to_mongo()
+
+    @staticmethod
+    def new_post(blog_id, title, content, date=datetime.datetime.now()):
+        blog = Blog.from_mongo(blog_id)
+        blog.new_post(title=title, content=content, data=date)
+
 
 
     def get_blogs(self):
