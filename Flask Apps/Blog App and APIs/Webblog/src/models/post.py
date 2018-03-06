@@ -1,4 +1,4 @@
-from src.common.database import Database
+from common.database import Database
 import uuid  #for generating new and unique ids..
 import datetime
 

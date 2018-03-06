@@ -1,11 +1,12 @@
 from common.database import Database
+from models.blog import Blog
 from flask import Flask, session
 import datetime
 
 
 class User(object):
     def __init__(self, email, password, _id=None):
-        self.email = get_by_email
+        self.email = email
         self.password = password
         self._id = uuid.uuid4().hex if _id is None else _id
 
@@ -53,6 +54,10 @@ class User(object):
     def logout():
         session['email'] = None
 
+
+    def get_blogs(self):
+        return Blog.find_by_author_id(self._id)
+
     def new_blog(self, title, description):
         blog = Blog(author=self.email,
             title=title,
@@ -67,13 +72,9 @@ class User(object):
         blog.new_post(title=title, content=content, data=date)
 
 
-
-    def get_blogs(self):
-        return Blog.find_by_author_id(self._id)
-
     def json(self):
         return {
-        "email": self.user_email,
+        "email": self.email,
         "_id": self._id,
         "password": self.password
         }
