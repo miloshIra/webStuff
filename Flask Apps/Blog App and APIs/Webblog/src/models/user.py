@@ -2,7 +2,7 @@ from common.database import Database
 from models.blog import Blog
 from flask import Flask, session
 import datetime
-
+import uuid
 
 class User(object):
     def __init__(self, email, password, _id=None):
@@ -17,11 +17,11 @@ class User(object):
             return cls(**data)
 
     @classmethod
-    def get_by_id(cls):
+    def get_by_id(cls, _id):
         data = Database.find_one("users", {"_id": _id})
         if data is not None:
             return cls(**data)
-        pass
+
 
     @staticmethod
     def login_valid(email, password):
@@ -80,5 +80,5 @@ class User(object):
         }
 
 
-    def save_to_mongo():
+    def save_to_mongo(self):
         Database.insert("users", self.json())

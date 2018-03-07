@@ -16,7 +16,7 @@ def login_template():
 
 @app.route('/register') # localhost:4995/register
 def register_template():
-    return render_template('login.html')
+    return render_template('register.html')
 
 @app.before_first_request
 def initialize_database():
@@ -41,7 +41,8 @@ def register_user():
     email = request.form['email']
     password = request.form['password']
 
-    User.register_user(email,password)
+    User.register(email, password)
+        
     return render_template("profile.html", email=session['email'])
 
 if  __name__=='__main__':
