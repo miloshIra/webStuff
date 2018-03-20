@@ -21,7 +21,7 @@ class Blog(object):
         post.save_to_mongo()
 
     def get_posts(self):
-        return Post.from_blog(self.id)
+        return Post.from_blog(self._id)
 
 
     def save_to_mongo(self):
