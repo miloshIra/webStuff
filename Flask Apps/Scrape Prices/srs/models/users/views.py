@@ -1,6 +1,7 @@
 from flask import Blueprint, request, session, url_for, render_template
 from werkzeug.utils import redirect
 from models.users.user import User
+import models.users.errors as UserErrors
 
 user_blueprint = Blueprint('users', __name__)
 
@@ -11,9 +12,12 @@ def login_user():
         email = request.form['email']
         password = request.form['hashed']
 
-        if User.is_login_valid(email, password):
-            session['email'] = email
-            return redirect(url_for(".user_alerts"))
+        try:
+            if User.is_login_valid(email, password):
+                session['email'] = email
+                return redirect(url_for(".user_alerts"))
+        except UserErrors.UserError as e:
+            return e.message
 
     return render_template("user/login.html") # Send the user error if the login is invalid ..
 

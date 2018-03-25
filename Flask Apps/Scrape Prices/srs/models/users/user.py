@@ -26,7 +26,6 @@ class User(object):
         if user_data is None:
             # Tell the user email does not exist
             raise UserErrors.UserNotExistsError("Your user does not exist.")
-
         if not Utils.check_hashed_password(password, user_data['password']):
             # Tell the user their password is wrong
             raise UserErrors.IncorrectPasswordError("Your password was wrong.")
