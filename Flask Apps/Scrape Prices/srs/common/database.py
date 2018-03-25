@@ -1,13 +1,13 @@
 import pymongo
 
 class Database(object):
-    URI = "mongodb://127:0.0.1:27017"
+    URI = "mongodb://127.0.0.1:27017"
     DATABASE = None
 
     @staticmethod
     def initialize():
         client = pymongo.MongoClient(Database.URI)
-        Databese.DATABASE = clien['test']
+        Database.DATABASE = client['test']
 
     @staticmethod
     def insert(collection, data):

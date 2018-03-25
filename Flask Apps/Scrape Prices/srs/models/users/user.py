@@ -1,13 +1,13 @@
 import uuid
-import src.models.users.errors as UserErrors
-from src.common.utils import utils
-from src.common.database. import Database
+import models.users.errors as UserErrors
+from common.utils import Utils
+from common.database import Database
 
 class User(object):
     def __init__(self, email, password, _id=None):
         self.email = email
         self.password = password
-        self._id = uuid,uuid4().hex if _id is None else_id
+        self._id = uuid,uuid4().hex if _id is None else _id
 
     def __repr__(self):
         return "<User {}>".format(self.email)
@@ -27,7 +27,7 @@ class User(object):
             # Tell the user email does not exist
             raise UserErrors.UserNotExistsError("Your user does not exist.")
 
-        if not utils.check_hashed_password(password, user_data['password']):
+        if not Utils.check_hashed_password(password, user_data['password']):
             # Tell the user their password is wrong
             raise UserErrors.IncorrectPasswordError("Your password was wrong")
 

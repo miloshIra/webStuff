@@ -19,4 +19,4 @@ class Utils(object):
         hashed_password : pbkdf2_sha512 encrypted password
         return True if password match, false otherwise
         """
-        return pbldf2pbkdf2_sha512.verify(password, hashed_password)
+        return pbkdf2_sha512.verify(password, hashed_password)
