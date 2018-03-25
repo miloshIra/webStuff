@@ -13,9 +13,9 @@ def login_user():
 
         if User.is_login_valid(email, password):
             session['email'] = email
-            return redirect(url_form(".user_alerts"))
+            return redirect(url_for(".user_alerts"))
 
-    return render_template("user/login.html")
+    return render_template("user/login.html") # Send the user error if the login is invalid ..
 
 
 @user_blueprint.route('/register')

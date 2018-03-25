@@ -6,6 +6,7 @@ class Utils(object):
     def hash_password(password):
         """
         Hashes password using pbkdf2_sha512
+        return: A sha512 > pbkdf2)sha512 encrypted password
         """
         return pbkdf2_sha512.encrypt(password)
 
