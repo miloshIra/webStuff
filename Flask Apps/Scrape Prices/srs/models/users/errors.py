@@ -10,3 +10,9 @@ class UserNotExistsError(UserError):
 
 class IncorrectPasswordError(UserError):
     pass
+
+class UserAlreadyRegistered(UserError):
+    pass
+
+class InvalidEmailError(UserError):
+    pass

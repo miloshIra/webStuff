@@ -7,7 +7,7 @@ class User(object):
     def __init__(self, email, password, _id=None):
         self.email = email
         self.password = password
-        self._id = uuid,uuid4().hex if _id is None else _id
+        self._id = uuid.uuid4().hex if _id is None else _id
 
     def __repr__(self):
         return "<User {}>".format(self.email)
@@ -31,3 +31,30 @@ class User(object):
             raise UserErrors.IncorrectPasswordError("Your password was wrong.")
 
         return True
+
+    @staticmethod
+    def register_user(email, password):
+        """
+        This method registers a user using email and password, the password comes hashed as sha-512
+        """
+        user_data = Database.find_one('users', {"email":email})
+
+        if user_data is not None:
+            raise UserErrors.UserAlreadyRegistered("The email you used to register already exists.")
+
+        if not Utils.email_is_valid(email):
+            raise UserErrors.InvalidEmailError("The e-mail does not have the right format.")
+
+        User(email, Utils.hash_password(password)).save_to_db()
+
+        return True
+
+    def save_to_db(self):
+        Database.insert("users", self.json())
+
+    def json(self):
+        return {
+            "_id":self._id,
+            "email":self.email,
+            "password":self.password
+        }
