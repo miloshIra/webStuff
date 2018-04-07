@@ -8,18 +8,18 @@ class Item(object):
         self.name = name
         self.url = url
         self.store = store
-        tag_name = store['tag_name']
-        query = store['query']
+        tag_name = store.tag_name
+        query = store.query
         self.price = self.load_price(tag_name, query)
 
 
     def __repr__(self):
-        return "<Item {} wirh URL {}".format(self.name, self.url)
+        return "<Item {} with URL {}".format(self.name, self.url)
 
     def load_price(self, tag_name, query):
         # <span class="a-size-medium a-color-price header-price">$31.24</span>
         request = requests.get(self.url)
-        content = requests.content
+        content = request.content
         soup = BeautifulSoup(content, "html.parser")
         element = soup.find(tag_name, query)
         string_price = element.text.strip()
