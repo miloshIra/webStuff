@@ -17,13 +17,13 @@ class Store(object):
         return {
             "_id": self._id,
             "name": self.name,
-            "url_prefix": self.url_prefix
+            "url_prefix": self.url_prefix,
             "tag_name": self.tag_name,
             "query": self.query
         }
 
     def get_by_id(self, id):
-        return cls(**Database.find_one(StoreConstants.COLLECTION, {"_id": id})
+        return cls(**Database.find_one(StoreConstants.COLLECTION, {"_id": id}))
 
     def save_to_mongo(self):
         Database.insert(StoreConstants.COLLECTION, self.json())
