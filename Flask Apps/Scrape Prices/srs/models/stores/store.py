@@ -31,6 +31,7 @@ class Store(object):
     @classmethod
     def get_by_name(cls, store_name):
         return cls(**Database.find_one(StoreConstants.COLLECTION, {"name": store_name}))
+        "This is way too cheeky ...."
 
     @classmethod
     def get_by_url_prefix(cls, url_prefix):
