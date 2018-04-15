@@ -3,6 +3,8 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import models.items.constants as ItemConstants
+from models.stores.store import Store
+from common.database import Database
 
 class Item(object):
     def __init__(self, name, url, _id=None):
