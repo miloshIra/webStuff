@@ -10,7 +10,7 @@ class Item(object):
     def __init__(self, name, url, _id=None):
         self.name = name
         self.url = url
-        store = Store.find_by_url(url)
+        store = Store.find_by_url(url) #go back to store as parameter .. so we can fix this..
         tag_name = store.tag_name
         query = store.query
         self.price = self.load_price(tag_name, query)
