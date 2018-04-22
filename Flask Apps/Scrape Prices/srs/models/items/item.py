@@ -7,10 +7,10 @@ from models.stores.store import Store
 from common.database import Database
 
 class Item(object):
-    def __init__(self, name, url, _id=None):
+    def __init__(self, name, url, store, _id=None):
         self.name = name
         self.url = url
-        store = Store.find_by_url(url) #go back to store as parameter .. so we can fix this..
+        self.store = store #store = Store.find_by_url(url)
         tag_name = store.tag_name
         query = store.query
         self.price = self.load_price(tag_name, query)
