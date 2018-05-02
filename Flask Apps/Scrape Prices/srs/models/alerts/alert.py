@@ -1,6 +1,6 @@
 import uuid
 import requests
-from models.alerts.constants as AlertConstants
+import models.alerts.constants as AlertConstants
 from common.database import Database
 from models.items.item import Item
 
@@ -27,9 +27,9 @@ class Alert(object):
             }
         )
 
-    def find_needing_update(self, minutes_since_update=AlertConstants.ALERT_TIMEOUT):
+    def find_needing_update(cls, minutes_since_update=AlertConstants.ALERT_TIMEOUT):
         last_updated_limit = datetime.datetime.utcnow() - datetime.timedelta(minutes=minutes_since_update)
-        return [cls(**elem)] for elem in Database.find(AlertConstants.COLLECTION, {"last_checked": {"$gte": last_updated_limit}})]
+        return [cls(**elem) for elem in Database.find(AlertConstants.COLLECTION, {"last_checked": {"$lte": last_updated_limit}})]
 
 
     def save_to_mongo(self):
