@@ -30,7 +30,7 @@ class Item(object):
 
         pattern = re.compile("(\d+.\d+)") # 155.00
         match = pattern.search(string_price)
-        self.price = match.group()
+        self.price = float(match.group())
 
         return self.price
 
@@ -48,4 +48,4 @@ class Item(object):
 
     @classmethod
     def get_by_id(cls, item_id):
-        return Database.find_one(ItemConstants.COLLECTION, {"_id": item_id})
+        return cls(**Database.find_one(ItemConstants.COLLECTION, {"_id": item_id}))

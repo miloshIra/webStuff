@@ -1,11 +1,12 @@
 import uuid
+import datetime
 import requests
 import models.alerts.constants as AlertConstants
 from common.database import Database
 from models.items.item import Item
 
 class Alert(object):
-    def __init__(self, user_email, price, item_id, last_checked=None, _id=None):
+    def __init__(self, user_email, price_limit, item_id, last_checked=None, _id=None):
         self.user_email =  user_email
         self.price_limit = price_limit
         self.item = Item.get_by_id(item_id)
@@ -27,17 +28,18 @@ class Alert(object):
             }
         )
 
+    @classmethod
     def find_needing_update(cls, minutes_since_update=AlertConstants.ALERT_TIMEOUT):
         last_updated_limit = datetime.datetime.utcnow() - datetime.timedelta(minutes=minutes_since_update)
         return [cls(**elem) for elem in Database.find(AlertConstants.COLLECTION, {"last_checked": {"$lte": last_updated_limit}})]
 
 
     def save_to_mongo(self):
-        Database.insert(AlertConstants.COLLECTION, self.json())
+        Database.update(AlertConstants.COLLECTION, {"_id": self._id}, self.json())
 
     def json(self):
         return {
-            "_id": self.id,
+            "_id": self._id,
             "price_limit": self.price_limit,
             "last_checked": self.last_checked,
             "user_email": self.user_email,
