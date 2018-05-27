@@ -20,7 +20,7 @@ class Item(object):
     def __repr__(self):
         return "<Item {} with URL {}".format(self.name, self.url)
 
-    def load_price(self, tag_name, query):
+    def load_price(self):    # video 92 ...  # STOROT NE E DOBRO SEJFNAT!!! MOZEBI CHARLES KE KAZE >.< ili nema ..
         # <span class="a-size-medium a-color-price header-price">$31.24</span>
         request = requests.get(self.url)
         content = request.content
@@ -30,8 +30,8 @@ class Item(object):
 
         pattern = re.compile("(\d+.\d+)") # 155.00
         match = pattern.search(string_price)
-        self.price = match.group()
 
+        self.price = float(match.group())
         return self.price
 
     def save_to_mongo(self):
