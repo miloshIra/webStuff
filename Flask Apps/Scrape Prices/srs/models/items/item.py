@@ -11,11 +11,14 @@ class Item(object):
         self.name = name
         self.url = url
 <<<<<<< HEAD
+<<<<<<< HEAD
         store = Store.find_by_url(url)
         self.tag_name = store.tag_name
         self.query = store.query
         self.price = None
 =======
+=======
+>>>>>>> parent of ee6da81... IT WORKSgit statusgit status IT's ALIVE!!!
         self.store = store #store = Store.find_by_url(url)
         tag_name = store.tag_name
         query = store.query
