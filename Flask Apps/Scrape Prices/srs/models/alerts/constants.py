@@ -1,4 +1,4 @@
-
+import os
 
 COLLECTION = "alerts"
 URL = "https://api.mailgun.net/v3/sandbox71720dac41d64a5580613d6fae6c95eb.mailgun.org/messages"

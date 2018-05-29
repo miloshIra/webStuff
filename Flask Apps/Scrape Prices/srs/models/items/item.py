@@ -7,23 +7,15 @@ from models.stores.store import Store
 from common.database import Database
 
 class Item(object):
-    def __init__(self, name, url, store, _id=None):
+    def __init__(self, name, url, price, store, _id=None):
         self.name = name
         self.url = url
-<<<<<<< HEAD
-<<<<<<< HEAD
         store = Store.find_by_url(url)
         self.tag_name = store.tag_name
         self.query = store.query
-        self.price = None
-=======
-=======
->>>>>>> parent of ee6da81... IT WORKSgit statusgit status IT's ALIVE!!!
-        self.store = store #store = Store.find_by_url(url)
         tag_name = store.tag_name
         query = store.query
         self.price = self.load_price(tag_name, query)
->>>>>>> parent of ee6da81... IT WORKSgit statusgit status IT's ALIVE!!!
         self._id = uuid.uuid4().hex if _id is None else _id
 
 
@@ -45,9 +37,9 @@ class Item(object):
         return self.price
 
     def save_to_mongo(self):
-        Database.insert(ItemConstants.COLLECTION, self.json())
+        Database.update(ItemConstants.COLLECTION, {'_id': self._id}, self.json())
         # Insert JSON representation
-        pass
+
 
     def json(self):
         return {
