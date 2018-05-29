@@ -7,15 +7,13 @@ from models.stores.store import Store
 from common.database import Database
 
 class Item(object):
-    def __init__(self, name, url, price, store, _id=None):
+    def __init__(self, name, url, _id=None):
         self.name = name
         self.url = url
         store = Store.find_by_url(url)
         self.tag_name = store.tag_name
         self.query = store.query
-        tag_name = store.tag_name
-        query = store.query
-        self.price = self.load_price(tag_name, query)
+        self.price = None
         self._id = uuid.uuid4().hex if _id is None else _id
 
 
@@ -29,10 +27,10 @@ class Item(object):
         soup = BeautifulSoup(content, "html.parser")
         element = soup.find(self.tag_name, self.query)
         string_price = element.text.strip()
-
+        string_price = (string_price[:2]+"."+string_price[3:5])
         pattern = re.compile("(\d+.\d+)") # 155.00
         match = pattern.search(string_price)
-
+        print(string_price)
         self.price = float(match.group())
         return self.price
 
