@@ -27,7 +27,7 @@ class Item(object):
         soup = BeautifulSoup(content, "html.parser")
         element = soup.find(self.tag_name, self.query)
         string_price = element.text.strip()
-
+        string_price = (string_price[:2]+"."+string_price[3:5])
         pattern = re.compile("(\d+.\d+)") # 155.00
         match = pattern.search(string_price)
 
