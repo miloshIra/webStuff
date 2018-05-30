@@ -20,8 +20,7 @@ class Item(object):
     def __repr__(self):
         return "<Item {} with URL {}".format(self.name, self.url)
 
-    def load_price(self):    # video 92 ...  # STOROT NE E DOBRO SEJFNAT!!! MOZEBI CHARLES KE KAZE >.< ili nema ..
-        # <span class="a-size-medium a-color-price header-price">$31.24</span>
+    def load_price(self):
         request = requests.get(self.url)
         content = request.content
         soup = BeautifulSoup(content, "html.parser")
@@ -30,14 +29,14 @@ class Item(object):
         string_price = (string_price[:2]+"."+string_price[3:5])
         pattern = re.compile("(\d+.\d+)") # 155.00
         match = pattern.search(string_price)
-        print(string_price)
+        
         self.price = float(match.group())
         return self.price
 
     def save_to_mongo(self):
-        Database.update(ItemConstants.COLLECTION, {'_id': self._id}, self.json())
+        Database.insert(ItemConstants.COLLECTION, self.json())
         # Insert JSON representation
-
+        pass
 
     def json(self):
         return {

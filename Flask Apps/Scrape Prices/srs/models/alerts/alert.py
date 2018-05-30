@@ -12,11 +12,13 @@ class Alert(object):
         self.item = Item.get_by_id(item_id)
         self.last_checked = datetime.datetime.utcnow() if last_checked is None else last_checked
         self._id = uuid.uuid4().hex if _id is None else _id
-
+        print(self.user_email)
     def __repr__(self):
-        return "<Alert for {} on item {} with price {}".format(self.user_email, self.item.name, self.price_limit)
+        return "<Alert for {} on item {} with price {}>".format(self.user_email, self.item.name, self.price_limit)
+
 
     def send(self):
+
         return requests.post(
             AlertConstants.URL,
             auth=("api", AlertConstants.API_KEY),
@@ -28,7 +30,9 @@ class Alert(object):
             }
         )
 
+
     @classmethod
+
     def find_needing_update(cls, minutes_since_update=AlertConstants.ALERT_TIMEOUT):
         last_updated_limit = datetime.datetime.utcnow() - datetime.timedelta(minutes=minutes_since_update)
         return [cls(**elem) for elem in Database.find(AlertConstants.COLLECTION, {"last_checked":
@@ -52,6 +56,7 @@ class Alert(object):
     def load_item_price(self):
         self.item.load_price()
         self.last_checked = datetime.datetime.utcnow()
+        #self.item.save_to_mongo() >>> Dali fali ova pred da se pravi frontend ?
         self.save_to_mongo()
         return self.item.price
 
