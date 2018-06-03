@@ -19,7 +19,7 @@ def login_user():
         except UserErrors.UserError as e:
             return e.message
 
-    return render_template("user/login.html") # Send the user error if the login is invalid ..
+    return render_template("users/login.html") # Send the user error if the login is invalid ..
 
 
 @user_blueprint.route('/register', methods=['GET','POST'])
@@ -35,7 +35,7 @@ def register_user():
         except UserErrors.UserError as e:
             return e.message
 
-    return render_template("user/register.html") # Send the user error if the login is invalid ..
+    return render_template("users/register.html") # Send the user error if the login is invalid ..
 
 @user_blueprint.route('/alerts')
 def user_alerts():

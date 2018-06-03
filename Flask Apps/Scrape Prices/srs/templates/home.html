@@ -1,4 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-<p> Hello World </p>
+  <div class="jumbotron">
+     <h1 class="display-4">Pricing service</h1>
+     <p class="lead">We scan Bookdepository.com and alert you if the book you want drops under your set price limit</p>
+     <p> Just sign up, and get startet by adding the URL of the book you want and we will do the rest</p>
+     <hr class="my-4">
+     <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+     <a class="btn btn-primary btn-lg" href="{{ url_for('users.register_user')}}" role="button">Sign up</a>
+  </div>
 {% endblock %}
