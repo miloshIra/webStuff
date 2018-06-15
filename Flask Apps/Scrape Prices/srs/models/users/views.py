@@ -3,6 +3,7 @@ from werkzeug.utils import redirect
 from models.users.user import User
 import models.users.errors as UserErrors
 
+
 user_blueprint = Blueprint('users', __name__)
 
 
@@ -39,7 +40,9 @@ def register_user():
 
 @user_blueprint.route('/alerts')
 def user_alerts():
-    return "This is the alerts page"
+    alert = User.get_alerts()
+    user = User.find_by_email(session['email'])
+    return render_template('users/alerts.html', alerts=alerts)
 
 @user_blueprint.route('/logout')
 def logout_user():

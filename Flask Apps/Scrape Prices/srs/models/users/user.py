@@ -2,6 +2,7 @@ import uuid
 import models.users.errors as UserErrors
 from common.utils import Utils
 from common.database import Database
+from models.alerts.alert import Alert
 
 class User(object):
     def __init__(self, email, password, _id=None):
@@ -58,3 +59,10 @@ class User(object):
             "email":self.email,
             "password":self.password
         }
+
+    @classmethod
+    def find_by_email(cls, email):
+        return cls(**Database.find_one('users', {'email': email}))
+
+    def get_alerts(self):
+        return Alert.find_by_user_email(self.email)
