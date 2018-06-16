@@ -2,8 +2,6 @@ import uuid
 import models.users.errors as UserErrors
 from common.utils import Utils
 from common.database import Database
-from models.alerts.alert import Alert
-import models.users.constants as UserConstants
 
 class User(object):
     def __init__(self, email, password, _id=None):
@@ -24,7 +22,7 @@ class User(object):
         :param password: A sha512 hashed password
         :return: True if valid, False otherwise
         """
-        user_data = Database.find_one(UserConstants.COLLECTION, {"email":email}) # password in sha512 -> pbkdf2_sha512
+        user_data = Database.find_one('users', {"email":email}) # password in sha512 -> pbkdf2_sha512
         if user_data is None:
             # Tell the user email does not exist
             raise UserErrors.UserNotExistsError("Your user does not exist.")
@@ -39,7 +37,7 @@ class User(object):
         """
         This method registers a user using email and password, the password comes hashed as sha-512
         """
-        user_data = Database.find_one(UserConstants.COLLECTION, {"email":email})
+        user_data = Database.find_one('users', {"email":email})
 
         if user_data is not None:
             raise UserErrors.UserAlreadyRegistered("The email you used to register already exists.")
@@ -52,7 +50,7 @@ class User(object):
         return True
 
     def save_to_db(self):
-        Database.insert(UserConstants.COLLECTION, self.json())
+        Database.insert("users", self.json())
 
     def json(self):
         return {
@@ -60,10 +58,3 @@ class User(object):
             "email":self.email,
             "password":self.password
         }
-
-    @classmethod
-    def find_by_email(cls, email):
-        return cls(**Database.find_one(UserConstants.COLLECTION, {'email': email }))
-
-    def get_alerts(self):
-        return Alert.find_by_user_email(self.email)
