@@ -40,13 +40,13 @@ def register_user():
 
 @user_blueprint.route('/alerts')
 def user_alerts():
-    user = User.find_by_email(session['email'])
-    return render_template('users/alerts.html', alerts=user.get_alerts())
+    return "This is the alerts page"
 
 @user_blueprint.route('/logout')
 def logout_user():
-    session['email'] = None
+    session['email']= None
     return redirect(url_for('home'))
+
 
 @user_blueprint.route('/check_alerts/<string:user_id>')
 def check_user_alerts(user_id):
