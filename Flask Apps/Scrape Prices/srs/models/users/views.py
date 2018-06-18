@@ -39,7 +39,9 @@ def register_user():
 
 @user_blueprint.route('/alerts')
 def user_alerts():
-    return "This is the alerts page"
+    user = User.find_by_email(session['email'])
+    alerts = User.get_alerts()
+    return render_template('users/alerts.html', alerts=alerts)
 
 @user_blueprint.route('/logout')
 def logout_user():
