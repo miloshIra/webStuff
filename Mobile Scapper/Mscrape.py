@@ -12,7 +12,6 @@ def load_countries():
     state = soup.find("select", {"id":"international_country"})
     count = (state.text.strip()).split()
     z = count[2:]
-
 load_countries()
 
 print(z)
