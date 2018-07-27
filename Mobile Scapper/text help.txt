@@ -1,0 +1,9 @@
+
+
+<span class="real number" data-value=73599>73,599</span><span class="real"> Real</span><br />
+soup.find("span", {"class": "real number", "data-value": True})['data-value']
+
+
+<div class="operator deselected" data-operator_name="Roshan" data-operator_id="9"><div class="operator_name_roshan"></div></div>
+soup.find("div", {"class": "operator deselected","data-operator_name: True"})['data-operator_name']
+prov=soup.find("div", {"class": "operator deselected"})['data-operator_name']
