@@ -1,0 +1,23 @@
+
+
+body{
+  background: url(https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fpbs.twimg.com%2Fmedia%2FC3RSuV4UcAE3i1z.jpg&f=1);
+  background-repeat: no-repeat;
+}
+
+div{
+  background-color: green;
+  border-color: purple;
+  border-width: 4px;
+  border-style: double;
+  font-style: bold;
+}
+
+p{
+  color: yellow;
+}
+
+span{
+  background: red;
+  color: black;
+}
