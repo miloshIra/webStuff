@@ -1,0 +1,27 @@
+h1{
+  color: red;
+  font-family: "Arial";
+}
+
+p{
+  font-family: monospace;
+}
+
+body{
+  font-size: 20px;
+  background-color: yellow;
+}
+
+#two{
+  font-size: 1em;
+  font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+p{
+  font-style: oblique;
+  font-weight: bold;
+}
+
+h1{
+  text-align: center;
+}
