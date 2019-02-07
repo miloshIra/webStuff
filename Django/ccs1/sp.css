@@ -1,0 +1,43 @@
+
+h3{
+  text-align: center;
+  font-family: 'Audiowide', cursive;
+
+}
+
+.art{
+  margin: auto;
+}
+
+#c1{
+  background-color: #2ECC71;
+  width: 150px;
+
+}
+
+#c2{
+  background-color: #9B59B6;
+  width: 150px;
+}
+
+#c3{
+  background-color: #3498DB;
+  width: 150px;
+}
+
+#c4{
+  background-color: #F2D607;
+  width: 150px;
+}
+
+#c5{
+  background-color: #EE4266;
+  width: 150px;
+}
+
+td{
+  height: 300px;
+  width: 150px;
+  border: 6px solid white;
+
+}
