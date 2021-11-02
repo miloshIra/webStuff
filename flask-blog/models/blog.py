@@ -20,7 +20,7 @@ class Blog:
                     author=self.author,
                     title=title,
                     content=content,
-                    date=datetime.datetime.strptime(date, "%d%m%Y"))
+                    date=datetime.datetime.strptime(date, "%d.%m.%Y"))
         post.save_to_mongo()
 
     def get_posts(self):
