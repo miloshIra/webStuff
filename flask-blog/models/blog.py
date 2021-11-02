@@ -15,7 +15,7 @@ class Blog:
     def new_post(self):
         title = input("Enter post title: ")
         content = input("Enter post content: ")
-        date = input("Enter post date, or leave blank for today (in format DDMMYYYY): ")
+        date = input("Enter post date, or leave blank for today (in format DD.MM.YYYY): ")
         post = Post(blog_id=self.id,
                     author=self.author,
                     title=title,
