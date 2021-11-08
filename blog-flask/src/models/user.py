@@ -34,6 +34,7 @@ class User:
         if user is None:
             new_user = cls(email, password)
             new_user.save_to_mongo()
+            session['email'] = email
             return True
         else:
             return False
@@ -42,12 +43,19 @@ class User:
     def login(user_email):
         session['email'] = user_email
 
+    @staticmethod
+    def logout():
+        session['email'] = None
+
     def get_blogs(self):
-        pass
+
 
     def save_to_mongo(self):
-        pass
+        Database.insert("users", self.json())
 
     def json(self):
-        pass
-
+        return {
+            "email": self.email,
+            "_id": self._id,
+            "password": self.password
+        }
