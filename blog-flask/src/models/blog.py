@@ -5,11 +5,12 @@ from src.common.database import Database
 
 
 class Blog:
-    def __init__(self, author, title, description, _id=None):
+    def __init__(self, author, title, description, author_id, _id=None):
         pass
         self.author = author
         self.title = title
         self.description = description
+        self.author_id = author_id
         self._id = uuid.uuid4().hex if _id is None else _id
 
     def new_post(self, title, content, date=datetime.datetime.now()):
@@ -29,6 +30,7 @@ class Blog:
     def json(self):
         return {
             'author': self.author,
+            'author_id': self.author_id,
             'title': self.title,
             'description': self.description,
             '_id': self._id
@@ -36,7 +38,12 @@ class Blog:
 
     @classmethod
     def get_from_mongo(cls, id):
-        blog_data = Database.find_one(collection='blogs', query={'_id': id})
+        blog_data = Database.find_one(collection='blogs',
+                                      query={'_id': id})
         return cls(**blog_data)
 
-
+    @classmethod
+    def find_by_author_id(cls, author_id):
+        blogs = Database.find(collection="blogs",
+                              query={'author_id': author_id})
+        return [cls(**blog) for blog in blogs]
