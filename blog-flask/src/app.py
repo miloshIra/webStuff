@@ -5,6 +5,7 @@ from src.common.database import Database
 app = Flask(__name__)
 app.secret_key = "Ira"
 
+
 @app.route('/')
 def hello():
     return render_template('login.html')
