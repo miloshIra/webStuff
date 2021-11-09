@@ -7,20 +7,26 @@ app.secret_key = "Ira"
 
 
 @app.route('/')
-def hello():
+def home_template():
+    return render_template('base.html')
+
+
+@app.route('/login')
+def login_template():
     return render_template('login.html')
+
+
+@app.route('/register')
+def register_template():
+    return render_template('register.html')
 
 
 @app.before_first_request
 def initialize_database():
     Database.initialize()
 
-# @app.route('/login')
-# def login():
-#     return render_template('login.html')
 
-
-@app.route('/login', methods=['POST'])
+@app.route('/auth/login', methods=['POST'])
 def login_user():
     email = request.form['email']
     password = request.form['password']
@@ -31,6 +37,28 @@ def login_user():
         session['email'] = None
 
     return render_template("profile.html", email=session['email'])
+
+
+@app.route('/auth/register', methods=['POST'])
+def register_user():
+    email = request.form['email']
+    password = request.form['password']
+
+    User.register(email, password)
+    return render_template("profile.html", email=session['email'])
+
+
+@app.route('/blogs/<string:user_id>')
+@app.route('/blogs')
+def user_blogs(user_id=None):
+    if user_id is not None:
+        user = User.get_by_id(user_id)
+    else:
+        user = User.get_by_email(session['email'])
+
+    blogs = user.get_blogs()
+
+    return render_template("user_blogs.html", blogs=blogs, email=user.email)
 
 
 if __name__ == '__main__':

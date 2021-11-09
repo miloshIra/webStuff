@@ -2,3 +2,20 @@
 #login-form {
     margin-top: 30px;
 }
+
+#navbarNav {
+    text-align: center;
+}
+
+.navbar-collapse {
+    display: flex;
+    justify-content: center;
+}
+
+.page-form {
+    max-width: 500px;
+}
+
+.login-submit {
+    margin-top: 15px;
+}

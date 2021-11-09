@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container page-form">
-    <form id="login-form" action="/auth/login" method="post">
+  <div class="container page-form">
+    <form id="login-form" action="/register/login" method="post">
         <div class="form-group">
             <label for="email">Email: </label>
         <input type="text" id="email" class="form-control" name="email">
@@ -12,9 +12,8 @@
         <input type="password" id="password" class="form-control" name="password">
         </div>
 
-        <button type="submit" class="btn btn-success login-submit">Login</button>
+        <button type="submit" class="btn btn-success login-submit">Register</button>
     </form>
 </div>
 
 {% endblock %}
-

@@ -25,10 +25,8 @@ class User(object):
 
     @staticmethod
     def login_valid(email, password):
-        # Check whether a user's email matches the password they sent us
         user = User.get_by_email(email)
         if user is not None:
-            # Check the password
             return user.password == password
         return False
 
@@ -36,18 +34,15 @@ class User(object):
     def register(cls, email, password):
         user = cls.get_by_email(email)
         if user is None:
-            # User doesn't exist, so we can create it
             new_user = cls(email, password)
             new_user.save_to_mongo()
             session['email'] = email
             return True
         else:
-            # User exists :(
             return False
 
     @staticmethod
     def login(user_email):
-        # login_valid has already been called
         session['email'] = user_email
 
     @staticmethod
