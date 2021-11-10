@@ -34,7 +34,6 @@ class Post:
     @staticmethod
     def from_blog(id):
         return [post for post in Database.find(collection='posts', query={'blog_id': id})]
-        # List iteration so it returns a list
 
 
 

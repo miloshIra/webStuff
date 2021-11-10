@@ -25,7 +25,8 @@ class Blog:
         return Post.from_blog(self._id)
 
     def save_to_mongo(self):
-        Database.insert(collection='blogs', data=self.json())
+        Database.insert(collection='blogs',
+                        data=self.json())
 
     def json(self):
         return {
@@ -44,6 +45,6 @@ class Blog:
 
     @classmethod
     def find_by_author_id(cls, author_id):
-        blogs = Database.find(collection="blogs",
+        blogs = Database.find(collection='blogs',
                               query={'author_id': author_id})
         return [cls(**blog) for blog in blogs]

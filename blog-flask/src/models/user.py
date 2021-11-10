@@ -5,7 +5,7 @@ from src.common.database import Database
 from src.models.blog import Blog
 
 
-class User(object):
+class User:
     def __init__(self, email, password, _id=None):
         self.email = email
         self.password = password
