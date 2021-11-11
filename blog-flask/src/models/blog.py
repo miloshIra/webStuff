@@ -6,7 +6,6 @@ from src.common.database import Database
 
 class Blog:
     def __init__(self, author, title, description, author_id, _id=None):
-        pass
         self.author = author
         self.title = title
         self.description = description

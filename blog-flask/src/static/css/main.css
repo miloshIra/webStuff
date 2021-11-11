@@ -12,9 +12,30 @@
     justify-content: center;
 }
 
+.navbar-brand{
+    color: #FFC898;
+}
+
+.navbar{
+    background-color: #B91646;
+}
+
+.nav-link{
+    color: #F9F3DF;
+}
+
+.welcome-banner {
+    text-align: center;
+    margin-top: 100px;
+}
+.greeting{
+    color: #B91646;
+}
+
 .page-form {
     max-width: 500px;
 }
+
 
 .login-submit {
     margin-top: 15px;

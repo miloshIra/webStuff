@@ -4,7 +4,6 @@ import datetime
 
 
 class Post:
-
     def __init__(self, blog_id, title, content, author, created_date=datetime.datetime.now(), _id=None):
         self.blog_id = blog_id
         self.title = title
@@ -14,7 +13,8 @@ class Post:
         self._id = uuid.uuid4().hex if _id is None else _id
 
     def save_to_mongo(self):
-        Database.insert(collection='posts', data=self.json())
+        Database.insert(collection='posts',
+                        data=self.json())
 
     def json(self):
         return {
@@ -34,6 +34,3 @@ class Post:
     @staticmethod
     def from_blog(id):
         return [post for post in Database.find(collection='posts', query={'blog_id': id})]
-
-
-

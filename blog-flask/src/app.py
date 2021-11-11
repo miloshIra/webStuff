@@ -1,6 +1,8 @@
-from flask import Flask, render_template, request, session, make_response
-from src.models.user import User, Blog
 from src.common.database import Database
+from src.models.blog import Blog
+from src.models.post import Post
+from src.models.user import User
+from flask import Flask, render_template, request, session, make_response
 
 app = Flask(__name__)
 app.secret_key = "Ira"
@@ -8,7 +10,7 @@ app.secret_key = "Ira"
 
 @app.route('/')
 def home_template():
-    return render_template('base.html')
+    return render_template('home.html')
 
 
 @app.route('/login')
@@ -61,14 +63,6 @@ def user_blogs(user_id=None):
     return render_template("user_blogs.html", blogs=blogs, email=user.email)
 
 
-@app.route('/posts/<string:blog_id>')
-def blog_posts(blog_id):
-    blog = Blog.get_from_mongo(blog_id)
-    posts = blog.get_posts()
-
-    return render_template('posts.html', posts=posts, blog_title=blog.title)
-
-
 @app.route('/blogs/new', methods=['POST', 'GET'])
 def create_new_blog():
     if request.method == 'GET':
@@ -77,12 +71,19 @@ def create_new_blog():
         title = request.form['title']
         description = request.form['description']
         user = User.get_by_email(session['email'])
-
         new_blog = Blog(user.email, title, description, user._id)
         new_blog.save_to_mongo()
 
         return make_response(user_blogs(user._id))
 
 
+@app.route('/posts/<string:blog_id>')
+def blog_posts(blog_id):
+    blog = Blog.get_from_mongo(blog_id)
+    posts = blog.get_posts()
+
+    return render_template('posts.html', posts=posts, blog_title=blog.title)
+
+
 if __name__ == '__main__':
-    app.run(port=1000)
+    app.run(port=1000, debug=True)
