@@ -1,10 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-
    <div class="container blogs">
       <h2>{{ blog_title }}</h2>
       <a href="/posts/new/{{ blog_id }}"><button class="btn btn-primary">New post</button></a>
-         {% if post|length > 0 %}
+         {% if posts|length > 0 %}
             {% for post in posts %}
                <h3>{{ post.title }}</h3>
                <p>{{ post.content }}</p>
@@ -15,5 +14,4 @@
             <h4>There aren't any posts yet.</h4>
          {% endif %}
    </div>
-
 {% endblock %}
