@@ -43,10 +43,11 @@ def login_user():
 
 @app.route('/auth/register', methods=['POST'])
 def register_user():
+    username = request.form['username']
     email = request.form['email']
     password = request.form['password']
 
-    User.register(email, password)
+    User.register(username, email, password)
     return render_template("profile.html", email=session['email'])
 
 

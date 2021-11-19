@@ -6,7 +6,8 @@ from src.models.blog import Blog
 
 
 class User:
-    def __init__(self, email, password, _id=None):
+    def __init__(self, username, email, password, _id=None):
+        self.username = username
         self.email = email
         self.password = password
         self._id = uuid.uuid4().hex if _id is None else _id
@@ -31,10 +32,10 @@ class User:
         return False
 
     @classmethod
-    def register(cls, email, password):
+    def register(cls, username, email, password):
         user = cls.get_by_email(email)
         if user is None:
-            new_user = cls(email, password)
+            new_user = cls(username, email, password)
             new_user.save_to_mongo()
             session['email'] = email
             return True
@@ -69,6 +70,7 @@ class User:
 
     def json(self):
         return {
+            "user": self.username,
             "email": self.email,
             "_id": self._id,
             "password": self.password
@@ -76,3 +78,4 @@ class User:
 
     def save_to_mongo(self):
         Database.insert("users", self.json())
+
