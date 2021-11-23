@@ -14,6 +14,4 @@ elements = soup.find(TAG_NAME, QUERY)
 string_prince = elements.text
 print(string_prince)
 
-
-
 #print(response.content)

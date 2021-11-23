@@ -29,6 +29,7 @@ class User:
         user = User.get_by_email(email)
         if user is not None:
             return user.password == password
+
         return False
 
     @classmethod
@@ -38,6 +39,7 @@ class User:
             new_user = cls(username, email, password)
             new_user.save_to_mongo()
             session['email'] = email
+            session['username'] = username
             return True
         else:
             return False
@@ -45,10 +47,13 @@ class User:
     @staticmethod
     def login(user_email):
         session['email'] = user_email
+        session['username'] = User.get_by_email(user_email).username
+        print(session["username"])
 
     @staticmethod
     def logout():
         session['email'] = None
+        session['username'] = None
 
     def get_blogs(self):
         return Blog.find_by_author_id(self._id)
@@ -70,7 +75,7 @@ class User:
 
     def json(self):
         return {
-            "user": self.username,
+            "username": self.username,
             "email": self.email,
             "_id": self._id,
             "password": self.password

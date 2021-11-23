@@ -28,7 +28,7 @@ def initialize_database():
     Database.initialize()
 
 
-@app.route('/auth/login', methods=['POST'])
+@app.route('/auth/login', methods=['POST', 'GET'])
 def login_user():
     email = request.form['email']
     password = request.form['password']
@@ -37,8 +37,14 @@ def login_user():
         User.login(email)
     else:
         session['email'] = None
+        return render_template("wrong_login.html")
 
     return render_template("profile.html", email=session['email'])
+
+
+@app.route('/', methods=['POST'])
+def logout_user():
+    User.logout()
 
 
 @app.route('/auth/register', methods=['POST'])
