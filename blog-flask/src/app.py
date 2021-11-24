@@ -2,7 +2,7 @@ from src.common.database import Database
 from src.models.blog import Blog
 from src.models.post import Post
 from src.models.user import User
-from flask import Flask, render_template, request, session, make_response
+from flask import Flask, render_template, request, session, make_response, redirect
 
 app = Flask(__name__)
 app.secret_key = "Ira"
@@ -35,6 +35,7 @@ def login_user():
 
     if User.login_valid(email, password):
         User.login(email)
+        print(session)
     else:
         session['email'] = None
         return render_template("wrong_login.html")
@@ -42,9 +43,13 @@ def login_user():
     return render_template("profile.html", email=session['email'])
 
 
-@app.route('/', methods=['POST'])
+@app.route('/logout')
 def logout_user():
-    User.logout()
+    print(session)
+    session.pop('email', default=None)
+    session.pop('username', default=None)
+    print(session)
+    return redirect('/')
 
 
 @app.route('/auth/register', methods=['POST'])
@@ -60,15 +65,17 @@ def register_user():
 @app.route('/blogs/<string:user_id>')
 @app.route('/blogs')
 def user_blogs(user_id=None):
-    if user_id is not None:
-        user = User.get_by_id(user_id)
-    else:
-        user = User.get_by_email(session['email'])
+    try:
+        if user_id is not None:
+            user = User.get_by_id(user_id)
+        else:
+            user = User.get_by_email(session['email'])
 
-    blogs = user.get_blogs()
+        blogs = user.get_blogs()
 
-    return render_template("user_blogs.html", blogs=blogs, email=user.email)
-
+        return render_template("user_blogs.html", blogs=blogs, email=user.email)
+    except KeyError:
+        return redirect('/')
 
 @app.route('/blogs/new', methods=['POST', 'GET'])
 def create_new_blog():
