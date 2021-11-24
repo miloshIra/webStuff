@@ -40,7 +40,7 @@ def login_user():
         session['email'] = None
         return render_template("wrong_login.html")
 
-    return render_template("profile.html", email=session['email'])
+    return render_template("profile.html", email=session['email'], username=session['username'])
 
 
 @app.route('/logout')
@@ -59,7 +59,7 @@ def register_user():
     password = request.form['password']
 
     User.register(username, email, password)
-    return render_template("profile.html", email=session['email'])
+    return render_template("profile.html", email=session['email'], username=session['username'])
 
 
 @app.route('/blogs/<string:user_id>')
