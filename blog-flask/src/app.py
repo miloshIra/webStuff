@@ -77,6 +77,7 @@ def user_blogs(user_id=None):
     except KeyError:
         return redirect('/')
 
+
 @app.route('/blogs/new', methods=['POST', 'GET'])
 def create_new_blog():
     if request.method == 'GET':
