@@ -7,6 +7,16 @@
     text-align: center;
 }
 
+
+.collapsed {
+    background-color: #FFC898;
+}
+
+
+.navbar-item {
+    background-color: #FFC898;
+}
+
 .navbar-collapse {
     display: flex;
     justify-content: center;
@@ -27,6 +37,11 @@
 .welcome-banner {
     text-align: center;
     margin-top: 100px;
+}
+
+.greeting {
+    text-align: left;
+    margin-left: 200px;
 }
 
 .retry-message {
