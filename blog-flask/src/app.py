@@ -63,17 +63,22 @@ def register_user():
 
 
 @app.route('/blogs/<string:user_id>')
-@app.route('/blogs')
 def user_blogs(user_id=None):
     try:
-        if user_id is not None:
-            user = User.get_by_id(user_id)
-        else:
-            user = User.get_by_email(session['email'])
-
+        user = User.get_by_email(session['email'])
         blogs = user.get_blogs()
 
         return render_template("user_blogs.html", blogs=blogs, email=user.email)
+    except KeyError:
+        return redirect('/')
+
+
+@app.route('/blogs')
+def all_blogs():
+    try:
+        blogs = Blog.all_blogs_from_mongo()
+
+        return render_template("all_blogs.html", blogs=blogs)
     except KeyError:
         return redirect('/')
 
