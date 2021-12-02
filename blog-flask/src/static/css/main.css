@@ -19,11 +19,12 @@
 
 .navbar-collapse {
     display: flex;
-    justify-content: center;
+    justify-content: end;
 }
 
 .navbar-brand{
-    color: #FFC898;
+    /*color: #FFC898;*/
+    color: #F9F3DF;
 }
 
 .navbar-expand-lg {
@@ -36,14 +37,32 @@
 
 .welcome-banner {
     /*border: 3px solid #B91646;*/
+    max-width: 60%;
+    background-color: #FFC898;
     text-align: center;
     margin-top: 100px;
     padding: 10px;
 }
 
+.login-banner, .register-banner {
+    max-width: 60%;
+    background-color: #FFC898;
+    padding: 10px;
+}
+
+.blog-background {
+    margin-top: 25px;
+    background-color:#FFC898;
+}
+
 .button-list {
     text-align: left;
     margin-left: 10px;
+}
+
+.blog-anchor .blog:hover-anchor {
+    color:white;
+    text-decoration: none;
 }
 
 .home-buttons, .home-buttons:hover {
@@ -53,6 +72,8 @@
 
 
 .greeting, .info-message {
+    padding-top: 30px;
+    padding-bottom: 20px;
     text-align: left;
     margin-left: 10px;
 }

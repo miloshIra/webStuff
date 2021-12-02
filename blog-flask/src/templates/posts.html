@@ -3,6 +3,7 @@
    <div class="container blogs">
       <h2>{{ blog_title }}</h2>
       <h6>{{ blog_description }}</h6>
+      <br>
          {% if posts|length > 0 %}
             {% for post in posts %}
                <h3>{{ post.title }}</h3>

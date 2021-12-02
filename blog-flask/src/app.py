@@ -40,7 +40,8 @@ def login_user():
         session['email'] = None
         return render_template("wrong_login.html")
 
-    return render_template("profile.html", email=session['email'], username=session['username'])
+    return render_template("home.html", email=session['email'], username=session['username'])
+    # return redirect("/", email=session['email'], username=session['username'])
 
 
 @app.route('/logout')

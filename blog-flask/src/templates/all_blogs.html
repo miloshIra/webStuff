@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-   <div class="container blogs">
+   <div class="container blogs blog-background">
       <h2>All blogs</h2>
       <hr size="5" noshade>
          {% for blog in blogs %}
-            <h3><a href="/posts/{{ blog._id }}">{{ blog.title }}</a></h3>
+            <h3><a class="blog-anchor" href="/posts/{{ blog._id }}">{{ blog.title }}</a></h3>
             <p>{{ blog.description }}</p>
-            <p align="right">{{ blog.author }}</p>
+      <p class="blog-author" align="right"><strong>{{ blog.author }}</strong></p>
          <hr>
          {% endfor %}
    </div>
