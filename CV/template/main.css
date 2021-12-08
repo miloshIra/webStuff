@@ -1,0 +1,74 @@
+
+
+.content {
+    margin: auto;
+    width: 50%;
+}
+
+.greeting {
+    text-align: center;
+    margin-top: 200px;
+    margin-left: 20px;
+    font-family: 'Baloo Bhaijaan 2', cursive;
+
+}
+
+.education {
+    text-align: center;
+}
+
+.profile-photo {
+    margin-right: 10px;
+    float: center;
+    width: 330px;
+    height: 400px;
+}
+
+.icon {
+    color: grey;
+    font-size: 35px;
+    margin-top: 30px;
+    margin-left: 32px;
+}
+
+.option-tabs {
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    margin-lef: 50px;
+}
+
+.tablinks, .tablinks:hover {
+    color: black;
+}
+
+.tabcontent {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.software-tab-title, .mechanical-tab-title {
+    text-align: center;
+}
+
+.software-story {
+    text-align: center;
+    margin-top: 15px;
+
+}
+
+.mechanical-story {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.goals-story, .quote {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.author {
+    text-align: end;
+}
+
+.project-tab-title {
+    margin-bottom: 25px;
+}
