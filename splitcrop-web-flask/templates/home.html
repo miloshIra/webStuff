@@ -1,30 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="greeting">This is the main home page where everything<br> will go and everything gets redirected here!</h3>
 
-<form>
-  <div class="form-group">
-    <label for="exampleFormControlFile1">Please choose a photo you want to split|crop</label>
-    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+<form method="post">
+  <div class="form-group d-flex justify-content-center">
+      <label id="photo-input-message">Please choose a photo you want to split|crop   </label><label id=photo for="photo-input">Choose Photo</label>
+    <input type="file" class="photo-input-form" id="photo-input" accept="image/jpeg, image/png">
   </div>
 </form>
 
+
+
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

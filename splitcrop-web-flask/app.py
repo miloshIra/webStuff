@@ -14,5 +14,10 @@ def home_template():
     return render_template('home.html')
 
 
+@app.route('/login')
+def login_template():
+    return render_template('login.html')
+
+
 if __name__ == '__main__':
     app.run(port=1000, debug=True)
