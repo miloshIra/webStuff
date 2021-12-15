@@ -19,24 +19,26 @@
       </div>
       <div class="col-sm-6 border-line" id="content-mutable-2" style="display:none">
         <h5> Please enter your:  </h5>
-          <form>
+          <form class="login-form" action="http://127.0.0.1:1000/">
               <h6><label id="email-label">Email: </label></h6>
               <input type="email">
               <h6><label id="password-label">Password: </label></h6>
               <input type="password">
-              <button class="login-button">Login</button>
+              <br>
+              <input type="submit" class="login-anchor">
           </form>
       </div>
         <div class="col-sm-6 border-line" id="content-mutable-3" style="display:none">
             <h5> Please provide the following:  </h5>
-         <form>
-             <h6><label id="username-label">Username: </label></h6>
-              <input type="text">
+         <form id="register-form" action="auth-register" method="post">
+             <h6><label id="username-label" >Username: </label></h6>
+              <input type="text" id="username" name="username">
               <h6><label id="email-label-reg">Email: </label></h6>
-              <input type="email">
+              <input type="email" id="email" name="email">
               <h6><label id="password-label-reg">Password: </label></h6>
-              <input type="password">
-             <button class="reg-button">Register</button>
+              <input type="password" id="password" name="password">
+             <br>
+             <button type="submit" class="reg-button">Register</button>
           </form>
         </div>
 </div>

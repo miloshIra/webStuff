@@ -3,7 +3,7 @@ from common.database import Database
 
 
 class User:
-    def __init__(self, username, email, password):
+    def __init__(self, username, email, password, _id=None):
         self.username = username
         self.email = email
         self.password = password
@@ -17,11 +17,12 @@ class User:
     @classmethod
     def register(cls, username, email, password):
         user = cls.get_by_email(email)
+        print(user)
         if user is None:
             new_user = cls(username, email, password)
             new_user.save_user()
-            session['email'] = email
-            session['username'] = username
+            # session['email'] = email
+            # session['username'] = username
             return True
         else:
             return False  # but why tho ???
