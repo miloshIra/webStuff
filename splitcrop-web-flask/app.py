@@ -27,6 +27,21 @@ def register_user():
     return render_template("index.html")
 
 
+@app.route('/auth/login', methods=['POST', 'GET'])
+def login_user():
+    email = request.form['email']
+    password = request.form['password']
+
+    if User.login_valid(email, password):
+        User.login(email)
+        print(session)
+    else:
+        session['email'] = None
+        return render_template("wrong_login.html")
+
+    return render_template("home.html", email=session['email'], username=session['username'])
+    # return redirect("/", email=session['email'], username=session['username'])
+
 
 @app.route('/home')
 def home_template():
