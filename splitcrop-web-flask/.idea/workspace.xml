@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22857c72-c482-42e6-aa05-95e30835c964" name="Changes" comment="Added and made the register work, now I need it of reject if email is in database and I need to redirect it to home after registering and ineed to make logins work and populate sessions.. yay.">
+    <list default="true" id="22857c72-c482-42e6-aa05-95e30835c964" name="Changes" comment="Added and made the register work added login it works to need to check how's session handles but seems fine, now I need it of reject if email is in database and I need to redirect it to home after 5000 delay.. yay.">
+      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +39,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/home.html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Projects/SplitCrop" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/templates/home.html" />
   </component>
@@ -152,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639597139336</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added and made the register work added login it works to need to check how's session handles but seems fine, now I need it of reject if email is in database and I need to redirect it to home after 5000 delay.. yay.">
+      <created>1639837625413</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1639837625413</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,6 +177,7 @@
     <MESSAGE value="Fixing up splitcrop-web" />
     <MESSAGE value="Just working on boring frontend added .js and some css pretty stuff for splitcrop-web." />
     <MESSAGE value="Added and made the register work, now I need it of reject if email is in database and I need to redirect it to home after registering and ineed to make logins work and populate sessions.. yay." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added and made the register work, now I need it of reject if email is in database and I need to redirect it to home after registering and ineed to make logins work and populate sessions.. yay." />
+    <MESSAGE value="Added and made the register work added login it works to need to check how's session handles but seems fine, now I need it of reject if email is in database and I need to redirect it to home after 5000 delay.. yay." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added and made the register work added login it works to need to check how's session handles but seems fine, now I need it of reject if email is in database and I need to redirect it to home after 5000 delay.. yay." />
   </component>
 </project>

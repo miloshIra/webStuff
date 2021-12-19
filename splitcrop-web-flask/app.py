@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, session, make_response, redirect
 from models.user import User
 from common.database import Database
+import main
 
 
 app = Flask(__name__)
@@ -46,6 +47,19 @@ def login_user():
 @app.route('/home')
 def home_template():
     return render_template('home.html')
+
+
+@app.route('/split')
+def split_image():
+    image = request.form['photo']
+    if request.form['divide_count'] == 2:
+        main.split_to_two(image)
+    elif request.form['divide_count'] == 3:
+        main.split_to_three(image)
+    elif request.form['divide_count'] == 6:
+        main.split_to_six(image)
+
+    # general login of how it should work, just a quick idea need to add a lot of stuff.
 
 
 @app.route('/login')

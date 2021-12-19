@@ -13,7 +13,11 @@
 <body>
 
 <div class="welcome-screen">
+    {% if not session %}
 <h2 class="greeting">Welcome to split|crop</h2>
+    {% else %}
+    <h2 class="greeting">Welcome to split|crop, {{username}}. </h2>
+    {% endif %}
 </div>
 <br>
 {% block content %}
