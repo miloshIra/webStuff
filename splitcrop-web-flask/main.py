@@ -11,15 +11,17 @@ def split_to_two(image):
     left_side_crop = (0, 0, width/2, height)
     print(left_side_crop)
     image_left_side = image.crop(left_side_crop)
-    image_left_side.save("left_side"+str(random.randint(1, 10000))+".jpg", quality=100)
-    image_left_side.show()
+    # image_left_side.save("left_side"+str(random.randint(1, 10000))+".jpg", quality=100)
+    # image_left_side.show()
+    return image_left_side
 
     # GET RIGHT SIDE OF THE IMAGE ###
     right_side_crop = (width / 2, 0, width, height)
     print(right_side_crop)
     image_right_side = image.crop(right_side_crop)
-    image_right_side.save("right_side"+str(random.randint(1, 10000))+".jpg", quality=100)
-    image_right_side.show()
+    # image_right_side.save("right_side"+str(random.randint(1, 10000))+".jpg", quality=100)
+    # image_right_side.show()
+    return image_right_side
 
 
 def split_to_three(image):

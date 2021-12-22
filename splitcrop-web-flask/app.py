@@ -49,15 +49,20 @@ def home_template():
     return render_template('home.html')
 
 
-@app.route('/split')
+@app.route('/split', methods=['POST', 'GET'])
+# @login_required
 def split_image():
-    image = request.form['photo']
-    if request.form['divide_count'] == 2:
-        main.split_to_two(image)
-    elif request.form['divide_count'] == 3:
+    if request.method == 'POST':
+        image = request.files['image']
         main.split_to_three(image)
-    elif request.form['divide_count'] == 6:
-        main.split_to_six(image)
+        render_template('split.html')
+        return True
+    # if request.form['divide_count'] == 2:
+    #     main.split_to_two(image)
+    # elif request.form['divide_count'] == 3:
+    #     main.split_to_three(image)
+    # elif request.form['divide_count'] == 6:
+    #     main.split_to_six(image)
 
     # general login of how it should work, just a quick idea need to add a lot of stuff.
 
