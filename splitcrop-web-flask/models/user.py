@@ -14,6 +14,7 @@ class User:
         if data is not None:
             return cls(**data)
 
+
     @classmethod
     def register(cls, username, email, password):
         ''' Registers users, by checking database if it exists, and if not it adds the user '''

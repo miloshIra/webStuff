@@ -58,3 +58,8 @@
 .reg-button, .login-button {
     clear: left;
 }
+
+.forgot-pass {
+ margin-top: 10px;
+ margin-bottom: 15px;
+}

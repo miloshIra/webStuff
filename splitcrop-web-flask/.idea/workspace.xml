@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22857c72-c482-42e6-aa05-95e30835c964" name="Changes" comment="Added main functionality, checked how's session handles, now I need it of reject if email is in database. I need to redirect it to home after 5000 delay, also find a way to download the result photos.">
+    <list default="true" id="22857c72-c482-42e6-aa05-95e30835c964" name="Changes" comment="split_image has no return!?, need to figure out how to return the images, and work on login, register stuff.">
+      <change afterPath="$PROJECT_DIR$/templates/forgot-password.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639945216014</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="split_image has no return!?, need to figure out how to return the images, and work on login, register stuff.">
+      <created>1640207686529</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1640207686529</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -188,6 +197,7 @@
     <MESSAGE value="Added and made the register work, now I need it of reject if email is in database and I need to redirect it to home after registering and ineed to make logins work and populate sessions.. yay." />
     <MESSAGE value="Added and made the register work added login it works to need to check how's session handles but seems fine, now I need it of reject if email is in database and I need to redirect it to home after 5000 delay.. yay." />
     <MESSAGE value="Added main functionality, checked how's session handles, now I need it of reject if email is in database. I need to redirect it to home after 5000 delay, also find a way to download the result photos." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added main functionality, checked how's session handles, now I need it of reject if email is in database. I need to redirect it to home after 5000 delay, also find a way to download the result photos." />
+    <MESSAGE value="split_image has no return!?, need to figure out how to return the images, and work on login, register stuff." />
+    <option name="LAST_COMMIT_MESSAGE" value="split_image has no return!?, need to figure out how to return the images, and work on login, register stuff." />
   </component>
 </project>

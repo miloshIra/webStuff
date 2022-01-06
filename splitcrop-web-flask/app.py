@@ -72,5 +72,20 @@ def login_template():
     return render_template('login.html')
 
 
+@app.route('/forgot-password', methods=['POST', 'GET'])
+def forgot_password():
+    return render_template('forgot-password.html')
+
+
+@app.route('/reset-password', methods=['POST'])
+def reset_password():
+    if request.method == 'POST':
+        email = request.form['email']
+        if User.get_by_email(email) is not None:
+            print(email)
+        else:
+            return "No such email"
+
+
 if __name__ == '__main__':
     app.run(port=1000, debug=True)
