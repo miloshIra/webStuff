@@ -51,6 +51,8 @@ def split_to_three(image):
     image_right.save("cut3.jpg", quality=100)
     image_right.show()
 
+    return ["cut1.jpg", "cut2.jpg", "cut3.jpg"]
+
 
 def split_to_six(image):
     """Divides the photo into six equal parts"""

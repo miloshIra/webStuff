@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, session, make_response, redirect
+from flask import Flask, render_template, request, session, make_response, redirect, send_from_directory
 from models.user import User
 from common.database import Database
 import main
+from PIL import Image
 
 
 app = Flask(__name__)
@@ -53,10 +54,14 @@ def home_template():
 # @login_required
 def split_image():
     if request.method == 'POST':
+        print(request.files)
         image = request.files['image']
-        main.split_to_three(image)
-        render_template('split.html')
-        return True
+        image = Image.open(image)
+        image_parts = main.split_to_three(image)
+        return redirect("/split")
+        # return send_from_directory(".", image_parts[0])
+    else:
+        return render_template('split.html')
     # if request.form['divide_count'] == 2:
     #     main.split_to_two(image)
     # elif request.form['divide_count'] == 3:
@@ -83,6 +88,7 @@ def reset_password():
         email = request.form['email']
         if User.get_by_email(email) is not None:
             print(email)
+            return redirect("/")
         else:
             return "No such email"
 
