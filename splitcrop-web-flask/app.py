@@ -3,6 +3,7 @@ from models.user import User
 from common.database import Database
 import main
 from PIL import Image
+import time
 
 
 app = Flask(__name__)
@@ -58,7 +59,9 @@ def split_image():
         image = request.files['image']
         image = Image.open(image)
         image_parts = main.split_to_three(image)
-        return redirect("/split")
+        # time.sleep(5000)
+        print(session)
+        return render_template("split.html")
         # return send_from_directory(".", image_parts[0])
     else:
         return render_template('split.html')

@@ -3,7 +3,7 @@ import random
 
 def split_to_two(image):
     """Divides the photo into two equal parts"""
-
+    # image = image.convert('RGB')
     width = image.size[0]
     height = image.size[1]
 
@@ -34,21 +34,21 @@ def split_to_three(image):
     left_crop_image = (0, 0, round(width / 3), height)
     print(left_crop_image)
     image_left = image.crop(left_crop_image)
-    image_left.save("cut1.jpg", quality=100)
+    image_left.save("./static/results/cut1.jpg", quality=100)
     image_left.show()
 
     # GET THE MIDDLE PART OF THE IMAGE ###
     middle_crop_image = (round(width / 3), 0, round(width * 2 / 3), height)
     print(middle_crop_image)
     image_middle = image.crop(middle_crop_image)
-    image_middle.save("cut2.jpg", quality=100)
+    image_middle.save("./static/results/cut2.jpg", quality=100)
     image_middle.show()
 
     # GET THE RIGHT PART OF THE IMAGE ###
     right_crop_image = (round(width * 2 / 3), 0, width, height)
     print(right_crop_image)
     image_right = image.crop(right_crop_image)
-    image_right.save("cut3.jpg", quality=100)
+    image_right.save("./static/results/cut3.jpg", quality=100)
     image_right.show()
 
     return ["cut1.jpg", "cut2.jpg", "cut3.jpg"]
