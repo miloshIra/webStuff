@@ -10,14 +10,14 @@ class User:
 
     @classmethod
     def get_by_email(cls, email):
+        """Check the database for a user by email"""
         data = Database.find_one("users", {"email": email})
         if data is not None:
             return cls(**data)
 
-
     @classmethod
     def register(cls, username, email, password):
-        ''' Registers users, by checking database if it exists, and if not it adds the user '''
+        """Registers users, by checking database if it exists, and if not it adds the user"""
         user = cls.get_by_email(email)
         print(user)
         if user is None:
