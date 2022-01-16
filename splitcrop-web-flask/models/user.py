@@ -41,6 +41,17 @@ class User:
         session['username'] = User.get_by_email(user_email).username
         print(session["username"])
 
+    @staticmethod
+    def save_reset_token(email, token):
+        Database.insert("tokens", {"email": email, "token": token})
+
+    @staticmethod
+    def get_reset_token(email):
+        data = Database.find_one("tokens", {"email": email})
+        if data is not None:
+            print(data)
+            return data
+
     def json(self):
         return {
             "username": self.username,

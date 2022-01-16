@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22857c72-c482-42e6-aa05-95e30835c964" name="Changes" comment="Saving the photo into static/results, displaying them in /split endpoint work on getting random number in email, work on adding nice download buttons, why are you so lazy lately ??!?">
+      <change afterPath="$PROJECT_DIR$/templates/change-password.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/reset-password.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/results/cut1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/results/cut1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/results/cut2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/results/cut2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/results/cut3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/results/cut3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/results/cut1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/results/cut2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/results/cut3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/forgot-password.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forgot-password.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +201,21 @@
       <option name="project" value="LOCAL" />
       <updated>1641934735538</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Saving the photo into static/results, displaying them in /split endpoint work on getting random number in email, work on adding nice download buttons, why are you so lazy lately ??!?">
+      <created>1642347753728</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1642347753728</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Saving the photo into static/results, displaying them in /split endpoint work on getting random number in email, work on adding nice download buttons, why are you so lazy lately ??!?">
+      <created>1642347782786</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1642347782786</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

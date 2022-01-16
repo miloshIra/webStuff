@@ -3,7 +3,7 @@ from models.user import User
 from common.database import Database
 import main
 from PIL import Image
-import time
+import random
 
 
 app = Flask(__name__)
@@ -91,9 +91,17 @@ def reset_password():
         email = request.form['email']
         if User.get_by_email(email) is not None:
             print(email)
-            return redirect("/")
+            token = random.randint(100000, 999999)
+            User.save_reset_token(email, token)
+            return render_template("/reset-password.html")
         else:
             return "No such email"
+
+
+@app.route('/change-password', methods=['POST', 'GET'])
+def change_password():
+    return User.get_reset_token("maritonski@gmail.com")
+
 
 
 @app.route('/signout/')

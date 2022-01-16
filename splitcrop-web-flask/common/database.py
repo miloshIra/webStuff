@@ -1,5 +1,6 @@
 import pymongo
 
+
 class Database:
     URI = "mongodb://127.0.0.1:27017"
     DATABASE = None
@@ -21,3 +22,4 @@ class Database:
     @staticmethod
     def find_one(collection, query):
         return Database.DATABASE[collection].find_one(query)
+
