@@ -101,5 +101,6 @@ def sing_out():
     session.clear()
     return redirect("/")
 
+
 if __name__ == '__main__':
     app.run(port=1000, debug=True)
