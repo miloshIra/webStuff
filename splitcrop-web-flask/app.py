@@ -90,6 +90,7 @@ def reset_password():
     if request.method == 'POST':
         email = request.form['email']
         if User.get_by_email(email) is not None:
+
             print(email)
             token = random.randint(100000, 999999)
             User.save_reset_token(email, token)
@@ -101,7 +102,8 @@ def reset_password():
 @app.route('/change-password', methods=['POST', 'GET'])
 def change_password():
     return User.get_reset_token("maritonski@gmail.com")
-
+    # Treba da vratam template I da gi sporeda kodovite tuka izgleda!
+    # Belki mozesh da go napravish toa so .token na objektot od databaza.
 
 
 @app.route('/signout/')
