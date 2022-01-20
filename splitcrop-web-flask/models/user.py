@@ -53,7 +53,7 @@ class User:
 
     @staticmethod
     def update_password(email, password):
-        Database.update_password("users", ({"email": email}, {'$set': {'password': password}}))
+        Database.update_password("users", {"email": email}, {"$set": {"password": password}})
 
     def json(self):
         return {

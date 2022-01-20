@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22857c72-c482-42e6-aa05-95e30835c964" name="Changes" comment="Generating random number/token for pasword reset is done, work on getting the token in email, work on adding nice download buttons for the images, why are you so lazy lately ??!?">
-      <change afterPath="$PROJECT_DIR$/templates/new-password.html" afterDir="false" />
+    <list default="true" id="22857c72-c482-42e6-aa05-95e30835c964" name="Changes" comment="Token management and comparing is done, need to find out how atomic operators with in mongoDB so I can update the password, also work on sending a mail with flask-mail and download buttons for the photos and we are done!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642449793507</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Token management and comparing is done, need to find out how atomic operators with in mongoDB so I can update the password, also work on sending a mail with flask-mail and download buttons for the photos and we are done!">
+      <created>1642703214486</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1642703214486</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,6 +256,7 @@
     <MESSAGE value="split_image has return!, password has return, work on getting random number in email, also work on displaying images for download." />
     <MESSAGE value="Saving the photo into static/results, displaying them in /split endpoint work on getting random number in email, work on adding nice download buttons, why are you so lazy lately ??!?" />
     <MESSAGE value="Generating random number/token for pasword reset is done, work on getting the token in email, work on adding nice download buttons for the images, why are you so lazy lately ??!?" />
-    <option name="LAST_COMMIT_MESSAGE" value="Generating random number/token for pasword reset is done, work on getting the token in email, work on adding nice download buttons for the images, why are you so lazy lately ??!?" />
+    <MESSAGE value="Token management and comparing is done, need to find out how atomic operators with in mongoDB so I can update the password, also work on sending a mail with flask-mail and download buttons for the photos and we are done!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Token management and comparing is done, need to find out how atomic operators with in mongoDB so I can update the password, also work on sending a mail with flask-mail and download buttons for the photos and we are done!" />
   </component>
 </project>

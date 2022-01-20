@@ -106,8 +106,6 @@ def change_password():
         return render_template('new-password.html')
     else:
         return "Your code is wrong please go back and try again"
-    # Treba da vratam template I da gi sporeda kodovite tuka izgleda!
-    # Belki mozesh da go napravish toa so .token na objektot od databaza.
 
 
 @app.route('/new-password', methods=['POST'])
@@ -116,6 +114,7 @@ def set_new_password():
     new_password_twice = request.form['new_password_twice']
     if new_password_once == new_password_twice:
         User.update_password('maritonski@gmail.com', new_password_once)
+        return redirect('http://127.0.0.1:1000/')
 
 
 @app.route('/signout/')
