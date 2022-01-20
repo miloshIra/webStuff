@@ -49,8 +49,11 @@ class User:
     def get_reset_token(email):
         data = Database.find_one("tokens", {"email": email})
         if data is not None:
-            print(data)
             return data
+
+    @staticmethod
+    def update_password(email, password):
+        Database.update_password("users", ({"email": email}, {'$set': {'password': password}}))
 
     def json(self):
         return {

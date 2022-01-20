@@ -23,3 +23,6 @@ class Database:
     def find_one(collection, query):
         return Database.DATABASE[collection].find_one(query)
 
+    @staticmethod
+    def update_password(collection, query):
+        Database.DATABASE[collection].updateOne(query)
