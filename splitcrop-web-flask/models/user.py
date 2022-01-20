@@ -27,7 +27,7 @@ class User:
             # session['username'] = username
             return True
         else:
-            return False  # but why tho ???
+            return "Email already in use"
 
     @staticmethod
     def login_valid(email, password):

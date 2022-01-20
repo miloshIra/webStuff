@@ -15,6 +15,11 @@ def initialize_database():
     Database.initialize()
 
 
+# @app.before_request
+# def make_session_permanent():
+#     session.permanent = True
+#
+
 @app.route('/', methods=['POST', 'GET'])
 def start_template():
     return render_template('index.html')
