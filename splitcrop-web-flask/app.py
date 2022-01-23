@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, make_response, redirect, send_from_directory
+from flask import Flask, render_template, request, session, redirect
 from models.user import User
 from common.database import Database
 import main
