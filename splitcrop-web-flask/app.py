@@ -63,8 +63,7 @@ def split_image():
         print(request.files)
         image = request.files['image']
         image = Image.open(image)
-        image_parts = main.split_to_three(image)
-        # time.sleep(5000)
+        image_parts = main.split_to_three(image)  # remnants of the past..
         print(session)
         return render_template("split.html")
         # return send_from_directory(".", image_parts[0])
@@ -93,11 +92,12 @@ def forgot_password():
 @app.route('/reset-password', methods=['POST'])
 def reset_password():
     if request.method == 'POST':
-        email = request.form['email']
-        if User.get_by_email(email) is not None:
-            print(email)
+        global reset_email
+        reset_email = request.form['email']
+        if User.get_by_email(reset_email) is not None:
+            print(reset_email)
             token = random.randint(100000, 999999)
-            User.save_reset_token(email, token)
+            User.save_reset_token(reset_email, token)
             return render_template("/reset-password.html")
         else:
             return "No such email"
@@ -105,12 +105,16 @@ def reset_password():
 
 @app.route('/change-password', methods=['POST', 'GET'])
 def change_password():
-    user_data = User.get_reset_token('maritonski@gmail.com')
-    user_input_token = int(request.form['token'])
-    if user_input_token == user_data['token']:
-        return render_template('new-password.html')
-    else:
-        return "Your code is wrong please go back and try again"
+    try:
+        user_data = User.get_reset_token(reset_email)
+        user_input_token = int(request.form['token'])
+
+        if user_input_token == user_data['token']:
+            return render_template('new-password.html')
+        else:
+            return "The code is wrong or has expired please go back and try again"
+    except ValueError:
+        return "The code is wrong or has expired please go back and try again"
 
 
 @app.route('/new-password', methods=['POST'])
@@ -118,8 +122,10 @@ def set_new_password():
     new_password_once = request.form['new_password_once']
     new_password_twice = request.form['new_password_twice']
     if new_password_once == new_password_twice:
-        User.update_password('maritonski@gmail.com', new_password_once)
+        User.update_password(reset_email, new_password_once)
         return redirect('http://127.0.0.1:1000/')
+    else:
+        return "Passwords don't match please go back and try again."
 
 
 @app.route('/signout/')
