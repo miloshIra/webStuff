@@ -25,3 +25,7 @@ class Database:
     @staticmethod
     def update_password(collection, finder, query):
         Database.DATABASE[collection].update_one(finder, query)
+
+    @staticmethod
+    def delete(collection, query):
+        Database.DATABASE[collection].remove(query)

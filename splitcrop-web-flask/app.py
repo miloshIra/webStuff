@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, session, redirect
 from models.user import User
 from common.database import Database
 import main
+import time
 from PIL import Image
 import random
 
@@ -15,10 +16,10 @@ def initialize_database():
     Database.initialize()
 
 
-# @app.before_request
-# def make_session_permanent():
-#     session.permanent = True
-#
+@app.before_request
+def make_session_permanent():
+    session.permanent = True
+
 
 @app.route('/', methods=['POST', 'GET'])
 def start_template():
@@ -57,7 +58,6 @@ def home_template():
 
 
 @app.route('/split', methods=['POST', 'GET'])
-# @login_required
 def split_image():
     if request.method == 'POST':
         print(request.files)
@@ -97,7 +97,7 @@ def reset_password():
         if User.get_by_email(reset_email) is not None:
             print(reset_email)
             token = random.randint(100000, 999999)
-            User.save_reset_token(reset_email, token)
+            User.save_reset_token(reset_email, token, time.time())
             return render_template("/reset-password.html")
         else:
             return "No such email"
@@ -108,8 +108,8 @@ def change_password():
     try:
         user_data = User.get_reset_token(reset_email)
         user_input_token = int(request.form['token'])
-
-        if user_input_token == user_data['token']:
+        print(user_data['time'])
+        if user_input_token == user_data['token'] and time.time() - user_data['time'] < 60:
             return render_template('new-password.html')
         else:
             return "The code is wrong or has expired please go back and try again"

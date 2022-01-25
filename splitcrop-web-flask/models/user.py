@@ -1,5 +1,6 @@
 from flask import session
 from common.database import Database
+import random
 
 
 class User:
@@ -42,8 +43,8 @@ class User:
         print(session["username"])
 
     @staticmethod
-    def save_reset_token(email, token):
-        Database.insert("tokens", {"email": email, "token": token})
+    def save_reset_token(email, token, time):
+        Database.insert("tokens", {"email": email, "token": token, "time": time})
 
     @staticmethod
     def get_reset_token(email):
