@@ -1,4 +1,4 @@
-from flask import session
+from flask import session, flash
 from common.database import Database
 import random
 
@@ -28,7 +28,7 @@ class User:
             # session['username'] = username
             return True
         else:
-            return "Email already in use"
+            flash("Email already in use")
 
     @staticmethod
     def login_valid(email, password):

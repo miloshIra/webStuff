@@ -23,5 +23,11 @@
 {% block content %}
 
 {% endblock %}
+<br>
+<center>
+{% for message in get_flashed_messages() %}
+    <p><strong>{{ message }}</strong></p>
+{% endfor %}
+    </center>
 </body>
 </html>
