@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, redirect
+from flask import Flask, render_template, request, session, redirect, url_for
 from models.user import User
 from common.database import Database
 import main
@@ -20,10 +20,23 @@ def initialize_database():
 def make_session_permanent():
     session.permanent = True
 
+#
+# def login_required(func):
+#     def check_login():
+#         if "username" not in session:
+#             return render_template(url_for('login'))
+#         return func()
+#     return check_login()
 
-@app.route('/', methods=['POST', 'GET'])
+
+@app.route('/')
 def start_template():
     return render_template('index.html')
+
+
+@app.route('/info')
+def info():
+    return render_template('info.html')
 
 
 @app.route('/auth-register', methods=['POST', 'GET'])
@@ -43,7 +56,6 @@ def login_user():
 
     if User.login_valid(email, password):
         User.login(email)
-        print(session)
     else:
         session['email'] = None
         return render_template("wrong_login.html")
@@ -53,18 +65,19 @@ def login_user():
 
 
 @app.route('/home')
+# @login_required
 def home_template():
+    if "username" not in session:
+        return redirect(url_for('start_template'))
     return render_template('home.html')
 
 
 @app.route('/split', methods=['POST', 'GET'])
 def split_image():
     if request.method == 'POST':
-        print(request.files)
         image = request.files['image']
         image = Image.open(image)
         image_parts = main.split_to_three(image)  # remnants of the past..
-        print(session)
         return render_template("split.html")
         # return send_from_directory(".", image_parts[0])
     else:
@@ -95,7 +108,6 @@ def reset_password():
         global reset_email
         reset_email = request.form['email']
         if User.get_by_email(reset_email) is not None:
-            print(reset_email)
             token = random.randint(100000, 999999)
             User.save_reset_token(reset_email, token, time.time())
             return render_template("/reset-password.html")
@@ -105,6 +117,7 @@ def reset_password():
 
 @app.route('/change-password', methods=['POST', 'GET'])
 def change_password():
+    # Add time attribute to the input so Mongo can recognize it and then arrange them by date.
     try:
         user_data = User.get_reset_token(reset_email)
         user_input_token = int(request.form['token'])
@@ -123,7 +136,7 @@ def set_new_password():
     new_password_twice = request.form['new_password_twice']
     if new_password_once == new_password_twice:
         User.update_password(reset_email, new_password_once)
-        return redirect('http://127.0.0.1:1000/')
+        return redirect(url_for('start_template'))
     else:
         return "Passwords don't match please go back and try again."
 
@@ -131,6 +144,8 @@ def set_new_password():
 @app.route('/signout/')
 def sing_out():
     session.clear()
+    print("logged out")
+    print(session)
     return redirect("/")
 
 
