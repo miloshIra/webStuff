@@ -7,8 +7,10 @@ from PIL import Image
 import random
 
 
+
 app = Flask(__name__)
 app.secret_key = "Ira"
+mail = Mail(app)
 
 
 @app.before_first_request
@@ -19,14 +21,6 @@ def initialize_database():
 @app.before_request
 def make_session_permanent():
     session.permanent = True
-
-#
-# def login_required(func):
-#     def check_login():
-#         if "username" not in session:
-#             return render_template(url_for('login'))
-#         return func()
-#     return check_login()
 
 
 @app.route('/')
@@ -61,11 +55,9 @@ def login_user():
         return render_template("wrong_login.html")
 
     return render_template("home.html", email=session['email'], username=session['username'])
-    # return redirect("/", email=session['email'], username=session['username'])
 
 
 @app.route('/home')
-# @login_required
 def home_template():
     if "username" not in session:
         return redirect(url_for('start_template'))

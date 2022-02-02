@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22857c72-c482-42e6-aa05-95e30835c964" name="Changes" comment="Fixed reset_email usage between routes and added some more end points functionality, added flash msg for email in use and need to work on flask-mail, work on download buttons and login_required stuff">
-      <change afterPath="$PROJECT_DIR$/templates/info.html" afterDir="false" />
+    <list default="true" id="22857c72-c482-42e6-aa05-95e30835c964" name="Changes" comment="Fixed the session problems no more guest added info page instead and make login a requirement, need to work on flask-mail, work on download buttons,and it should be done soon...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643237328858</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Fixed the session problems no more guest added info page instead and make login a requirement, need to work on flask-mail, work on download buttons,and it should be done soon...">
+      <created>1643546931939</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1643546931939</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -320,6 +322,7 @@
     <MESSAGE value="Fixed reset_email usage between routes and added some more end points functionality, work on flask-mail send and download buttons." />
     <MESSAGE value="Fixed reset_email usage between routes and added some more end points functionality, added flash msg for email in use and need to work on flask-mail, and download buttons." />
     <MESSAGE value="Fixed reset_email usage between routes and added some more end points functionality, added flash msg for email in use and need to work on flask-mail, work on download buttons and login_required stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed reset_email usage between routes and added some more end points functionality, added flash msg for email in use and need to work on flask-mail, work on download buttons and login_required stuff" />
+    <MESSAGE value="Fixed the session problems no more guest added info page instead and make login a requirement, need to work on flask-mail, work on download buttons,and it should be done soon..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the session problems no more guest added info page instead and make login a requirement, need to work on flask-mail, work on download buttons,and it should be done soon..." />
   </component>
 </project>
