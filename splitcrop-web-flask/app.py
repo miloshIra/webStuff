@@ -10,7 +10,7 @@ import random
 
 app = Flask(__name__)
 app.secret_key = "Ira"
-mail = Mail(app)
+
 
 
 @app.before_first_request
