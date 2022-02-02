@@ -7,10 +7,8 @@ from PIL import Image
 import random
 
 
-
 app = Flask(__name__)
 app.secret_key = "Ira"
-
 
 
 @app.before_first_request
