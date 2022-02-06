@@ -45,6 +45,16 @@
     margin-right: 20px;
 }
 
+.image-box{
+    display: inline;
+    align: center;
+    padding: 2px;
+}
+
+.download-anchor {
+    display: inline;
+}
+
 #photo {
     background: white;
     padding: 8px;
@@ -54,6 +64,7 @@
 #photo:hover {
     border: 2px solid;
 }
+
 
 .reg-button, .login-button {
     clear: left;
