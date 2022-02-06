@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22857c72-c482-42e6-aa05-95e30835c964" name="Changes" comment="Added download buttons need to style them, need to work on flask-mail, it should be done soon...">
+    <list default="true" id="22857c72-c482-42e6-aa05-95e30835c964" name="Changes" comment="Fixed the session problems no more guest added info page instead and make login a requirement, need to work on flask-mail, work on download buttons,and it should be done soon...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,35 +291,7 @@
       <option name="project" value="LOCAL" />
       <updated>1643546931939</updated>
     </task>
-    <task id="LOCAL-00028" summary="Fixed the session problems no more guest added info page instead and make login a requirement, need to work on flask-mail, work on download buttons,and it should be done soon...">
-      <created>1643833894329</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1643833894329</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Fixed the session problems no more guest added info page instead and make login a requirement, need to work on flask-mail, work on download buttons,and it should be done soon...">
-      <created>1643833907020</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1643833907020</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Fixed the session problems no more guest added info page instead and make login a requirement, need to work on flask-mail, work on download buttons,and it should be done soon...">
-      <created>1643833917176</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1643833917176</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Added download buttons need to style them, need to work on flask-mail, it should be done soon...">
-      <created>1644176745002</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1644176745002</updated>
-    </task>
-    <option name="localTasksCounter" value="32" />
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -350,7 +323,6 @@
     <MESSAGE value="Fixed reset_email usage between routes and added some more end points functionality, added flash msg for email in use and need to work on flask-mail, and download buttons." />
     <MESSAGE value="Fixed reset_email usage between routes and added some more end points functionality, added flash msg for email in use and need to work on flask-mail, work on download buttons and login_required stuff" />
     <MESSAGE value="Fixed the session problems no more guest added info page instead and make login a requirement, need to work on flask-mail, work on download buttons,and it should be done soon..." />
-    <MESSAGE value="Added download buttons need to style them, need to work on flask-mail, it should be done soon..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added download buttons need to style them, need to work on flask-mail, it should be done soon..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the session problems no more guest added info page instead and make login a requirement, need to work on flask-mail, work on download buttons,and it should be done soon..." />
   </component>
 </project>
