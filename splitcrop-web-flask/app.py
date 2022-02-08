@@ -52,7 +52,9 @@ def login_user():
         session['email'] = None
         return render_template("wrong_login.html")
 
-    return render_template("home.html", email=session['email'], username=session['username'])
+    # return render_template("home.html", email=session['email'], username=session['username'])
+    print(session)
+    return redirect(url_for('home_template'))
 
 
 @app.route('/home')
@@ -140,4 +142,4 @@ def sing_out():
 
 
 if __name__ == '__main__':
-    app.run(port=1000, debug=True)
+    app.run(port=2000, debug=True)

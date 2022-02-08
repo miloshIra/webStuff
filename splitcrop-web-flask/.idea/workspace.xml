@@ -1,9 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22857c72-c482-42e6-aa05-95e30835c964" name="Changes" comment="Fixed the session problems no more guest added info page instead and make login a requirement, need to work on flask-mail, work on download buttons,and it should be done soon...">
+    <list default="true" id="22857c72-c482-42e6-aa05-95e30835c964" name="Changes" comment="Added download buttons need to style them, need to work on flask-mail, it should be done soon...">
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/.idea/lunch-idea.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/common/database.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/models/idea.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/models/user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/static/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/templates/forgot-password.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/templates/idea.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/templates/profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/templates/shopping_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lunch-idea/templates/weekly_ideas.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

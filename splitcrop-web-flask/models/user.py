@@ -44,16 +44,19 @@ class User:
 
     @staticmethod
     def save_reset_token(email, token, time):
+        """Saves the reset password token in the database"""
         Database.insert("tokens", {"email": email, "token": token, "time": time})
 
     @staticmethod
     def get_reset_token(email):
+        """Gets the reset password token from the database"""
         data = Database.find_one("tokens", {"email": email})
         if data is not None:
             return data
 
     @staticmethod
     def update_password(email, password):
+        """Used to update new password when tokens match"""
         Database.update_password("users", {"email": email}, {"$set": {"password": password}})
 
     def json(self):
@@ -64,4 +67,5 @@ class User:
         }
 
     def save_user(self):
+        """Saves the User to the database"""
         Database.insert("users", self.json())
