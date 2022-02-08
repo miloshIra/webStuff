@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<center>
+
+<br>
+<br>
+        <h5> Please enter your:  </h5>
+          <form class="login-form" action="/auth/login" method="post">
+              <h6><label id="email-label">Email: </label></h6>
+              <input type="email" name="email" required>
+              <h6><label id="password-label">Password: </label></h6>
+              <input type="password" name="password" required>
+              <br>
+              <br>
+              <h6 class="forgot-pass"><a href="/forgot-password">I forgot</a> my username or/and password? </h6>
+              <br>
+              <input type="submit" class="login-anchor">
+          </form>
+
+
+
+</center>
+
+{% endblock %}
+
+

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<center>
+
+     <h5> Please provide the following:  </h5>
+    <br>
+
+ <form id="register-form" action="auth-register" method="post">
+             <h6><label id="username-label" >Username: </label></h6>
+              <input type="text" id="username" name="username" required>
+              <h6><label id="email-label-reg">Email: </label></h6>
+              <input type="email" id="email" name="email" required>
+              <h6><label id="password-label-reg">Password: </label></h6>
+              <input type="password" id="password" name="password" required>
+             <br>
+             <br>
+             <button type="submit" class="reg-button">Register</button>
+          </form>
+ 
+
+</center>
+
+{% endblock %}
