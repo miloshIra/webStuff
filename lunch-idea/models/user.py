@@ -3,7 +3,7 @@ from common.database import Database
 
 
 class User:
-    # _id should be uuid4 but functionality first "complexity" later...
+    # _id should be uu4id but functionality first "complexity" later...
     def __init__(self, username, email, password, _id=None):
         self.username = username
         self.password = password
@@ -40,6 +40,23 @@ class User:
         session['email'] = user_email
         session['username'] = User.get_by_email(user_email).username
         print(session["username"])
+
+    @staticmethod
+    def save_reset_token(email, token, time):
+        """Saves the reset password token in the database"""
+        Database.insert("tokens", {"email": email, "token": token, "time": time})
+
+    @staticmethod
+    def get_reset_token(email):
+        """Gets the reset password token from the database"""
+        data = Database.find_one("tokens", {"email": email})
+        if data is not None:
+            return data
+
+    @staticmethod
+    def update_password(email, password):
+        """Used to update new password when tokens match"""
+        Database.update_password("users", {"email": email}, {"$set": {"password": password}})
 
     def json(self):
         return {

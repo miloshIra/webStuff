@@ -1,4 +1,5 @@
 from common.database import Database
+from flask import flash
 
 
 class LunchIdea:
@@ -7,8 +8,17 @@ class LunchIdea:
         self.name = name  # should be the name of the meal
         self.ingredients = ingredients  # should be a list of a dictionary of ingredients with this amount in grams
         self.category = category  # should be a category of food ex: traditional, modern, italian, vegetarian, vegan🤮
-        self.prep_time = prep_time # should be average preparation time .. or we just drop this :)
+        self.prep_time = prep_time  # should be average preparation time .. or we just drop this :)
 
+    @classmethod
+    def add_idea(cls, name, ingredients, category, prep_time, _id=None):   # Wrote it with my ass, maybe it works.
+        """Just a method to use to populate the meal database collection"""
+        new_idea = cls(name, ingredients, category, prep_time)
+        print(new_idea)
+        new_idea.save_idea()
+        flash("Your email is already in use.")
+
+    # These get ideas by category, might need some to get they my _id .. when we have an _id for ideas xD
     @classmethod
     def get_idea(cls, category):
         """Gets an idea from the database by category"""
@@ -31,10 +41,6 @@ class LunchIdea:
             "prep_time": self.prep_time,
                 }
 
-    def save_idea(self): # Will be used to populate the database I guess..
+    def save_idea(self):  # Will be used to populate the database I guess..
         """Saves an idea to the database"""
         Database.insert("ideas", self.json())
-
-
-
-
