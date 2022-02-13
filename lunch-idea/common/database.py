@@ -27,6 +27,10 @@ class Database:
         return Database.DATABASE[collection].find_one(query)
 
     @staticmethod
+    def find_token(collection, query):
+        return Database.DATABASE[collection].find(query).sort('time', -1).limit(1)[0]
+
+    @staticmethod
     def update_password(collection, finder, query):
         Database.DATABASE[collection].update_one(finder, query)
 

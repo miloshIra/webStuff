@@ -49,7 +49,7 @@ class User:
     @staticmethod
     def get_reset_token(email):
         """Gets the reset password token from the database"""
-        data = Database.find_one("tokens", {"email": email})
+        data = Database.find_token("tokens", {"email": email})
         if data is not None:
             return data
 

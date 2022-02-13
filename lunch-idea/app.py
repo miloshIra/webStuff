@@ -91,15 +91,15 @@ def forgot_password():
 @app.route('/reset-password', methods=['POST'])
 def reset_password():
     # if request.method == 'POST':
-        global reset_email
-        reset_email = request.form['email']
-        if User.get_by_email(reset_email) is not None:
-            token = random.randint(100000, 999999)
-            User.save_reset_token(reset_email, token, time.time())
-            return render_template("/reset-password.html")
-        else:
-            flash("No such email, please register.")
-            return redirect(url_for('register_template'))
+    #     global reset_email
+    reset_email = request.form['email']
+    if User.get_by_email(reset_email) is not None:
+        token = random.randint(100000, 999999)
+        User.save_reset_token(reset_email, token, time.time())
+        return render_template("/reset-password.html", email=reset_email)
+    else:
+        flash("No such email, please register.")
+        return redirect(url_for('register_template'))
 
 
 @app.route('/change-password', methods=['POST', 'GET'])
@@ -107,11 +107,12 @@ def change_password():
     # Add time attribute to the input so Mongo can recognize it and then arrange them by date.
     # It doesnt work now cause it only checks first token and it's usually is expired.
     # Well it does work but only if there is 1 token in the database.
+    reset_email = request.form['email']
     user_data = User.get_reset_token(reset_email)
     user_input_token = int(request.form['token'])
     print(user_data['time'])
     if user_input_token == user_data['token'] and time.time() - user_data['time'] < 60:
-        return render_template('new-password.html')
+        return render_template('new-password.html',  email=reset_email)
     else:
         flash("The code is wrong or has expired please go back and try again")
         return redirect(url_for('reset_password'))
@@ -119,6 +120,7 @@ def change_password():
 
 @app.route('/new-password', methods=['POST'])
 def set_new_password():
+    reset_email = request.form['email']
     new_password_once = request.form['new_password_once']
     new_password_twice = request.form['new_password_twice']
     if new_password_once == new_password_twice:
