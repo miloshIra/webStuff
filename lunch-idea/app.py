@@ -1,6 +1,7 @@
 from flask import Flask, session, render_template, url_for, redirect, request, flash
 from common.database import Database
 from models.user import User
+from models.idea import LunchIdea
 import random
 import time
 
@@ -35,11 +36,18 @@ def profile():
 @app.route('/idea/')
 def idea():
     """This should show an idea from the database of ideas!"""
+    latest_ideas = []
+    current_idea = LunchIdea.get_idea("tradicionalna")  # tradicionalna* should come for a radio button on the template
+    if current_idea not in latest_ideas:
+        latest_ideas.append(current_idea)
+        idea = current_idea
+    else:
+        pass
     # Should get a random idea from the database, store is in a dictionary,
     # Compare it to ides in the dictionary to avoid repetition
     # Display it in the idea template
     # Pop the stored idea
-    return render_template('idea.html')
+    return render_template('idea.html', idea=current_idea)
 
 
 # USER AUTH TEMPLATES

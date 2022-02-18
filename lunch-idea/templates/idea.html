@@ -5,16 +5,17 @@
 <h3> This is the idea page </h3>
     <br>
     <br>
-    <img src="img_girl.jpg" alt="Maybe a photo of the meal" width="500" height="600">
+    <img src="img_girl.jpg" alt="Photo of the meal" width="500" height="600">
 <!--    This is where we should have an image of the object we get from the database -->
     <br>
     <br>
-<center
+<center>
+    <h3> {{ idea.name }}</h3>
     <ul>
 <!--    This is where we should list ingredients from the idea object we get from the database -->
-    <li> 200g Meat</li>
-    <li> 300g Rise</li>
-    <li> 500g Pasta</li>
+    <li>{{ idea.ingredients[0] }}</li>
+    <li>{{ idea.ingredients[1] }}</li>
+<!--    <li> 500g Pasta</li>-->
 
     </ul>
 
