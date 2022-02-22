@@ -3,16 +3,19 @@ from common.database import Database
 
 class LunchIdea:
     """ This is the idea class """
-    def __init__(self, name, ingredients, category, prep_time, _id=None, ):
+    def __init__(self, num, name, ingredients, category, prep_time, _id=None,  ):
+        self.num = num
         self.name = name  # should be the name of the meal
         self.ingredients = ingredients  # should be a list of a dictionary of ingredients with this amount in grams
         self.category = category  # should be a category of food ex: traditional, modern, italian, vegetarian, vegan🤮
         self.prep_time = prep_time  # should be average preparation time .. or we just drop this :)
 
     @classmethod
-    def add_idea(cls, name, ingredients, category, prep_time, _id=None):   # Wrote it with my ass, maybe it works.
+    def add_idea(cls, num, name, ingredients, category, prep_time, _id=None):   # Wrote it with my ass, maybe it works.
         """Just a method to use to populate the meal database collection"""
-        new_idea = cls(name, ingredients, category, prep_time)
+        count = Database.count_entries('ideas')
+        print(count)
+        new_idea = cls(num, name, ingredients, category, prep_time)
         print(new_idea.name)
         new_idea.save_idea()
         return "Your idea has been added to the database."
@@ -34,6 +37,7 @@ class LunchIdea:
 
     def json(self):
         return {
+            "num": self.num,
             "name": self.name,
             "ingredients": self.ingredients,
             "category": self.category,

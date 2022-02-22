@@ -12,6 +12,10 @@ class Database:
         client = pymongo.MongoClient(Database.URI)
         Database.DATABASE = client['LunchIdea']
 
+    # @staticmethod
+    # def count_entries(collection):
+    #     Database.DATABASE[collection].countDocuments()
+
     @staticmethod
     def insert(collection, data):
         Database.DATABASE[collection].insert_one(data)
