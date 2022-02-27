@@ -13,8 +13,8 @@ class LunchIdea:
     @classmethod
     def add_idea(cls, num, name, ingredients, category, prep_time, _id=None):   # Wrote it with my ass, maybe it works.
         """Just a method to use to populate the meal database collection"""
-        count = Database.count_entries('ideas')
-        print(count)
+        # count = Database.count_entries('ideas')
+        # print(count)
         new_idea = cls(num, name, ingredients, category, prep_time)
         print(new_idea.name)
         new_idea.save_idea()
@@ -32,7 +32,7 @@ class LunchIdea:
     def get_ideas(cls, category):
         """Gets all ideas from a category"""
         data = Database.find("ideas", {"category": category})  
-        return cls(**data)
+        return data
         # Not tested don't know if it will work for list of objects might need to iterate list of objects
 
     def json(self):

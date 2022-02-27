@@ -23,7 +23,7 @@ def make_session_permanent():
 @app.route('/')
 def home():
     if 'username' in session:  # 'username' Should change to if session[used_id] is None maybe ..
-        return render_template('idea.html')
+        return render_template('profile.html')
     else:
         return redirect(url_for('login_template'))
 
@@ -40,14 +40,14 @@ def idea():
     current_idea = LunchIdea.get_idea("tradicionalna")  # tradicionalna* should come for a radio button on the template
     if current_idea not in latest_ideas:
         latest_ideas.append(current_idea)
-        idea = current_idea
+        checked_idea = current_idea
     else:
-        pass
+        idea()
     # Should get a random idea from the database, store is in a dictionary,
     # Compare it to ides in the dictionary to avoid repetition
     # Display it in the idea template
     # Pop the stored idea
-    return render_template('idea.html', idea=current_idea)
+    return render_template('idea.html', idea=checked_idea)
 
 
 # USER AUTH TEMPLATES
