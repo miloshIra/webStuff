@@ -3,7 +3,7 @@ from common.database import Database
 
 class LunchIdea:
     """ This is the idea class """
-    def __init__(self, num, name, ingredients, category, prep_time, _id=None,  ):
+    def __init__(self, num, name, ingredients, category, prep_time, _id=None,):
         self.num = num
         self.name = name  # should be the name of the meal
         self.ingredients = ingredients  # should be a list of a dictionary of ingredients with this amount in grams
@@ -22,9 +22,9 @@ class LunchIdea:
 
     # These get ideas by category, might need some to get they my _id .. when we have an _id for ideas xD
     @classmethod
-    def get_idea(cls, category):
+    def get_idea(cls, category, num):
         """Gets an idea from the database by category"""
-        data = Database.find_one("ideas", {"category": category})  # Not tested but should work
+        data = Database.find_one("ideas", {"category": category, "num": num})  # Not tested but should work
         if data is not None:
             return cls(**data)
 
@@ -47,5 +47,3 @@ class LunchIdea:
     def save_idea(self):  # Will be used to populate the database I guess..
         """Saves an idea to the database"""
         Database.insert("ideas", self.json())
-
-

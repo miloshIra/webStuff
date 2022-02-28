@@ -12,9 +12,9 @@ class Database:
         client = pymongo.MongoClient(Database.URI)
         Database.DATABASE = client['LunchIdea']
 
-    # @staticmethod
-    # def count_entries(collection):
-    #     Database.DATABASE[collection].countDocuments()
+    @staticmethod
+    def count_entries(collection):
+        return Database.DATABASE[collection].count_documents({})
 
     @staticmethod
     def insert(collection, data):
@@ -23,8 +23,6 @@ class Database:
     @staticmethod
     def find(collection, query):
         return Database.DATABASE[collection].find(query)
-
-    # is find == find_all() ?? check later ..
 
     @staticmethod
     def find_one(collection, query):

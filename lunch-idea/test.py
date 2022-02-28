@@ -1,18 +1,32 @@
 # import requests
 from common.database import Database
 from models.idea import LunchIdea
+import random
+
 # from models.user import User
 
 Database.initialize()
 
-ideas = LunchIdea.get_ideas('tradicionalna')
+# ideas = LunchIdea.get_ideas('tradicionalna')
+# all_ideas = []
+# past_ideas = []
+#
+# for idea in ideas:
+#     all_ideas.append(idea)
+#
+# print(all_ideas)
+# count = 3
+#
+# print(count)
+#
+# current_idea = (all_ideas[random.randint(0, count)])
+# if current_idea in past_ideas:
+#     current_idea = (all_ideas[random.randint(0, count)])
+# else:
+#     print(current_idea)
+#     past_ideas.append(current_idea)
 
-count = 0
-
-for idea in ideas:
-    count = count + 1
-
-print(count)
+# print(past_ideas)
 #
 # num = 3
 # name = "Спањак"
@@ -20,9 +34,6 @@ print(count)
 # category = 'tradicionalna'
 # prep_time = '40mins'
 #
-# # with open('data.csv', 'r') as data:
-# #     for item in data:
-# #         LunchIdea.add_idea(item[0], item[1], item[3], item[4])
 # #
 # #
 # # # new_user = User("Losh", "123@gmail.com", "123123")
@@ -36,7 +47,7 @@ print(count)
 # print(current_idea.ingredients[0])
 # print(len(current_idea))
 
-# print(Database.count_entries('ideas'))
+print(Database.count_entries('ideas'))
 
 #
 # LunchIdea.add_idea(name, ingredients, category, prep_time)

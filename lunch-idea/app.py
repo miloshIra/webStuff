@@ -33,16 +33,25 @@ def profile():
     return render_template('profile.html')
 
 
+latest_ideas = []
+
+
 @app.route('/idea/')
-def idea():
+def get_idea():
     """This should show an idea from the database of ideas!"""
-    latest_ideas = []
-    current_idea = LunchIdea.get_idea("tradicionalna")  # tradicionalna* should come for a radio button on the template
-    if current_idea not in latest_ideas:
+    if len(latest_ideas) == 3:  # should be 5 of 7
+        latest_ideas.clear()
+    count = Database.count_entries("ideas")
+    current_idea = LunchIdea.get_idea('tradicionalna', random.randint(0, count-1))
+    # tradicionalna* should come for a radio button on the template
+    print(current_idea)
+    if current_idea not in latest_ideas and current_idea is not None:
         latest_ideas.append(current_idea)
+        print(latest_ideas)
         checked_idea = current_idea
     else:
-        idea()
+        checked_idea = latest_ideas[0]
+
     # Should get a random idea from the database, store is in a dictionary,
     # Compare it to ides in the dictionary to avoid repetition
     # Display it in the idea template
