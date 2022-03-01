@@ -28,18 +28,18 @@ Database.initialize()
 
 # print(past_ideas)
 #
-# num = 3
-# name = "Спањак"
-# ingredients = ['300г ориз', '300 спањак', '2 јајца']
-# category = 'tradicionalna'
-# prep_time = '40mins'
+num = 10
+name = "Лазањи"
+ingredients = ['кори за лазањи', '300г мелено месо', '150г кашкавал']
+category = 'tradicionalna'
+prep_time = '40mins'
 #
 # #
 # #
 # # # new_user = User("Losh", "123@gmail.com", "123123")
 # # # new_user.register("Milosh", "123@gmail.com", "123123")
 # #
-# new_idea = LunchIdea.add_idea(num, name, ingredients, category, prep_time)
+LunchIdea.add_idea(num, name, ingredients, category, prep_time)
 # new_idea.add_idea(name, ingredients, category, prep_time)
 #
 # current_idea = LunchIdea.get_idea("tradicionalna")

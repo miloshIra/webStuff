@@ -1,4 +1,7 @@
+import random
 from common.database import Database
+
+latest_ideas = []
 
 
 class LunchIdea:
@@ -27,6 +30,23 @@ class LunchIdea:
         data = Database.find_one("ideas", {"category": category, "num": num})  # Not tested but should work
         if data is not None:
             return cls(**data)
+
+    @classmethod
+    def generate_idea(cls, category):
+        """Generates an idea from the database by category and number to be shown client side"""
+        if len(latest_ideas) == 2:
+            latest_ideas.clear()
+        count = Database.count_entries('ideas')
+        num = random.randint(0, count-1)
+        current_idea = Database.find_one("ideas", {"category": category, "num": num})
+
+        if current_idea not in latest_ideas and not None:
+            latest_ideas.append(current_idea)
+            print(latest_ideas)
+            return cls(**current_idea)
+        else:
+            current_idea = Database.find_one("ideas", {"category": category, "num": num-1})
+            return cls(**current_idea)
 
     @classmethod
     def get_ideas(cls, category):
