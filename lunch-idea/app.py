@@ -4,6 +4,7 @@ from models.user import User
 from models.idea import LunchIdea
 import random
 import time
+from flask_mail import Mail
 
 
 app = Flask(__name__)
