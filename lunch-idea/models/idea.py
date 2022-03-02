@@ -34,10 +34,10 @@ class LunchIdea:
     @classmethod
     def generate_idea(cls, category):
         """Generates an idea from the database by category and number to be shown client side"""
-        if len(latest_ideas) == 2:
+        if len(latest_ideas) == 3:
             latest_ideas.clear()
         count = Database.count_entries('ideas')
-        num = random.randint(0, count-1)
+        num = random.randint(1, count-1)
         current_idea = Database.find_one("ideas", {"category": category, "num": num})
 
         if current_idea not in latest_ideas and not None:
@@ -45,6 +45,8 @@ class LunchIdea:
             print(latest_ideas)
             return cls(**current_idea)
         else:
+            print(latest_ideas)
+            # current_idea = Database.find("ideas", {"category": category, "num": {"$nin": [idea.num for idea in latest_ideas]}})
             current_idea = Database.find_one("ideas", {"category": category, "num": num-1})
             return cls(**current_idea)
 
