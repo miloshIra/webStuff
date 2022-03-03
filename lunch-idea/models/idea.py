@@ -46,8 +46,8 @@ class LunchIdea:
             return cls(**current_idea)
         else:
             print(latest_ideas)
-            # current_idea = Database.find("ideas", {"category": category, "num": {"$nin": [idea.num for idea in latest_ideas]}})
-            current_idea = Database.find_one("ideas", {"category": category, "num": num-1})
+            current_idea = Database.find("ideas", {"category": category, "num": {"$nin": [idea.num for idea in latest_ideas]}})
+            # current_idea = Database.find_one("ideas", {"category": category, "num": num-1})
             return cls(**current_idea)
 
     @classmethod
