@@ -1,5 +1,6 @@
 
 
+body {background-color: #EAE7C6;}
 
 
 .greeting {
@@ -10,3 +11,6 @@
 .password-change {
     display: inline;
 }
+
+/* THIS IS A COPIED FORM PROPERTIES */
+
