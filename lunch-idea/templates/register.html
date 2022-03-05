@@ -3,22 +3,70 @@
 
 <center>
 
-     <h5> Please provide the following:  </h5>
     <br>
 
- <form id="register-form" action="auth-register" method="post">
-             <h6><label id="username-label" >Username: </label></h6>
-              <input type="text" id="username" name="username" required>
-              <h6><label id="email-label-reg">Email: </label></h6>
-              <input type="email" id="email" name="email" required>
-              <h6><label id="password-label-reg">Password: </label></h6>
-              <input type="password" id="password" name="password" required>
-             <br>
-             <br>
-     <h6 class="forgot-pass">Let me <a href="/login/">login</a>, I have an account.</h6>
-             <br>
-             <button type="submit" class="reg-button">Register</button>
-          </form>
+<!-- <form id="register-form" action="auth-register" method="post">-->
+<!--             <h6><label id="username-label" >Username: </label></h6>-->
+<!--              <input type="text" id="username" name="username" required>-->
+<!--              <h6><label id="email-label-reg">Email: </label></h6>-->
+<!--              <input type="email" id="email" name="email" required>-->
+<!--              <h6><label id="password-label-reg">Password: </label></h6>-->
+<!--              <input type="password" id="password" name="password" required>-->
+<!--             <br>-->
+<!--             <br>-->
+<!--     <h6 class="forgot-pass">Let me <a href="/login/">login</a>, I have an account.</h6>-->
+<!--             <br>-->
+<!--             <button type="submit" class="reg-button">Register</button>-->
+<!--          </form>-->
+
+<div id="main-wrapper" class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-10">
+            <div class="card border shadow p-3 mb-5 rounded">
+                <div class="card-body p-0">
+                    <div class="row no-gutters">
+                        <div class="col-md-6">
+                            <div class="p-5 border">
+
+
+                                <h6 class="h5 mb-0">Здраво</h6>
+                                <p class="text-muted mt-2 mb-5">Ве молам внесете ги следните податици за да се пријавите.</p>
+
+                                <form  class="register-form" action="/auth/login">
+                                    <div class="form-group">
+                                        <label for="exampleInputUsername1">Име: </label>
+                                        <input type="text" class="form-control" id="exampleInputUsername1" name="username" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Емаил адреса: </label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" name="email" required>
+                                    </div>
+                                    <div class="form-group mb-5">
+                                        <label for="exampleInputPassword1">Лозинка: </label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-theme">Пријава</button>
+                                    <a href="/login" class="forgot-link float-right text-primary">Веќе се пријавивте, најавете се ?</a>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="account-block rounded-right">
+                                <div class="overlay rounded-right"></div>
+                                <div class="account-testimonial">
+                                    <h4 class="text-white mb-4">За кога навистина веќе не знаете што да зготвите.</h4>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
  
 
 </center>
