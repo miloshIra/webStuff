@@ -1,34 +1,68 @@
 {% extends "base.html" %}
 {% block content %}
 
+<div id="main-wrapper" class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card border shadow p-3 mb-5 rounded">
+                <div class="card-body p-0">
+                    <div class="row no-gutters">
+                        <div class="col-md-6">
+                            <div class="p-5 border">
 
-<h3> This is the idea page </h3>
-    <br>
-    <br>
-    <img src="img_girl.jpg" alt="Photo of the meal" width="500" height="600">
-<!--    This is where we should have an image of the object we get from the database -->
-    <br>
-    <br>
-<center>
-    <h3> {{ idea.name }}</h3>
-    <ul>
-<!--    This is where we should list ingredients from the idea object we get from the database -->
-        {% for item in idea.ingredients %}
-    <li>{{ item }}</li>
-        {% endfor %}
 
-<!--    <li> 500g Pasta</li>-->
+                                <h6 class="h5 mb-0">Вашата идеа е: </h6>
+                                <br>
 
-    </ul>
+                                <h3> {{ idea.name }}</h3>
+                                <br>
+                                <ul>
+                                    <!--    This is where we should list ingredients from the idea object we get from the database -->
+                                    {% for item in idea.ingredients %}
+                                    <li>{{ item }}</li>
+                                    {% endfor %}
 
-</center>
+                                    <!--    <li> 500g Pasta</li>-->
 
-    <br>
+                                </ul>
+                                <br>
 
-<h5>Please another <a href="/idea/">Idea</a>, I don't eat this.</h5>
 
-    <br>
+                            </div>
+                        </div>
 
-<a class="anchor-buttons" href="/user-profile/"><h3>Back to profile</h3></a>
+                        <div class="col-md-6">
+                            <div class="idea-block rounded-right">
+                                <div class="overlay rounded-right"></div>
+                                <div class="account-testimonial">
+                                    <div class="p-5 border">
+                                        <img class="meal-image" src="img_girl.jpg" alt="Photo of the meal" width="500"
+                                             height="600">
+                                        <!--    This is where we should have an image of the object we get from the database -->
+                                    </div>
 
-{% endblock %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <center>
+
+
+                </center>
+
+                <br>
+
+                <h6>Не ми се допаѓа <a href="/idea/">Идеата</a>, Предложете ми друга</h6>
+
+                <br>
+
+                <a class="anchor-buttons" href="/user-profile/"><h6>Назад кон профилот</h6></a>
+
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
