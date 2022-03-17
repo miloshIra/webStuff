@@ -33,6 +33,7 @@
 body{
     margin-top:20px;
     background-image: url(https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80);
+    color:#6c757d;
 
 .card border {
     padding: 5px;
@@ -50,17 +51,22 @@ body{
 
 .idea-block {
     padding: 0;
-    background-image: url(https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
+    background-image: url(https://images.unsplash.com/photo-1613564834361-9436948817d1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=743&q=80);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
     position: relative;
 }
 
+
 .meal-image {
 
 }
 
+#list-title, #list-name, #list-content {
+    font-size: 20px;
+    color: #6c757d !important;
+}
 
 }
 .account-block .overlay {
