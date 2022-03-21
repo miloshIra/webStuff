@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+    <center>
+        <br>
+        <div id="main-wrapper" class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card border shadow p-3 mb-5 rounded">
+
+                <form class="form-pass" action="/reset-password" method="post">
+        <br>
+
+                    <h3 class="text-muted mt-2 mb-5">Предложи ми</h3>
+                    <a class="anchor-buttons" href="/idea/"><h3>РучекИдеа</h3></a>
+        <br>
+        <br>
+<!--        This is a form because it should take lunch idea parameters in the future!-->
+
+                    </form>
+                <br>
+        <a class="anchor-buttons" href="/logout/"><h5>Logout</h5></a>
+
+    </center>
+</div>
+</div>
+</div>
+
+{% endblock %}

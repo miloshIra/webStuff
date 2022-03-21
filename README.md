@@ -1,8 +1,8 @@
 # webStuff
-Starter web apps, mostly Flask, maybe Django
+Trying to learn web apps, maybe Flask, maybe Django I am horrible..
 
 try:
  complete some student project .. .
- expect hype, sorrow, misery, faliure, baldness
+ expect hype, sorrow, misery, faliure, baldness.
  
  

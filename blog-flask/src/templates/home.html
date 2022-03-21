@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container welcome-banner rounded">
+        <div class="hero-unit col-md-8 offset-md-2">
+            <form class="button-list" id="welcome-form" action="/logout">
+                {% if not session %}
+                <h1 class="greeting">Hello future member,</h1>
+                <h3 class="info-message">This is a sample blog site, made by me miloshIra,<br> you can find my information in the top right, for everything else you can: </h3>
+                <button type="submit" class="btn btn-success login-submit home-button"><a class="home-buttons" href="/login">Login</a></button>
+                <button type="submit" class="btn btn-success login-submit"><a class="home-buttons" href="/register">Register</a></button>
+                {% else %}
+                <h1 class="greeting">Hello {{username}},</h1>
+                <h3 class="info-message">Welcome back to our blog site,<br>this blog is made by me <strong>miloshIra</strong>,<br> you can probably find my links on the navbar,<br>
+                or you can continue with the following options:</h3>
+                <button type="submit" class="btn btn-success login-submit"><a class="home-buttons" href="/blogs">Read Blogs</a></button>
+                <button type="submit" class="btn btn-success login-submit"><a class="home-buttons" href="/blogs/<string:user_id>">My blogs</a></button>
+                <button type="submit" class="btn btn-success login-submit"><a class="home-buttons" href="/blogs/new">New blog</a></button>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

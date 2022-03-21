@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="tabs.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="main.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="content ">
+<h2 class="greeting col-align-self-center">Milosh Aritonski</h2>
+    <br>
+    <p class="education"><strong>Mechanical engineer</strong> at Ss. Cyril and Methodius University - Mechanical engineering<u>(=mechatronics)</u></p>
+    <br>
+ <div class="row">
+<div class="photo col-lg-4">
+<img class="img-fluid" src="./try5.jpg">
+    <ol class="icon-list">
+        <a class="icon" href="https://mk.linkedin.com/in/milosh-aritonski-5b864bb7"><i class="bi bi-linkedin"></i></a>
+        <a class="icon"  href="mailto:maritonski@gmail.com" data-toggle="tooltip" data-placement="bottom" title="maritonski@gmail.com"><i class="bi bi-envelope"></i></a>
+        <a class="icon" href="https://github.com/miloshIra"><i class="bi bi-github"></i></a>
+    </ol>
+</div>
+ <div class="col-lg-8">
+    <div class="tabs col">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item"><a class="nav-link tablinks active" id="software-tab" role="tab" onclick="openTab(event,'software')">Software Dev.</a></li>
+    <li class="nav-item"><a class="nav-link tablinks" id="mechanical-tab" role="tab" onclick="openTab(event,'mechanical')">Mechanical Engineering</a></li>
+    <li class="nav-item"><a class="nav-link tablinks" id="goals-tab" role="tab" onclick="openTab(event,'goals')">State of mind</a></li>
+    <li class="nav-item"><a class="nav-link tablinks" id="hobbies-tab" role="tab" onclick="openTab(event,'hobbies')">Projects</a></li>
+</ul>
+    </div>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active tabcontent" id="software" role="tabpanel" >
+    <h5 class="software-tab-title">Since 2017  I tried to teach myself coding, mostly: </h5>
+      <br>
+
+      <ol>
+          <p>Python</p>
+          <p>C</p>
+          <p>Tkinter</p>
+          <p>Flask </p>
+          <p>MongoDB</p>
+          <p>PostGreSQL</p>
+          <p>Bootstrap</p>
+          <p>Github</p>
+      </ol>
+      </ol>
+      </ol>
+      <hr>
+      <h6 class="software-story">It all started with a genuine interest in robotics,
+          C for arduino sensors and actuators, it quickly escalated into Python and simple
+          projects for work that you can find in the projects tab or my <a href="https://github.com/miloshIra">github.</a></h6>
+
+  </div>
+  <div class="tab-pane fade show tabcontent" id="mechanical" role="tabpanel" >
+      <ol>
+          <h5 class="mechanical-tab-title"> I have worked with: </h5>
+        <p>2014-2015</p>
+        <p>-<strong> Welding and lifting specialist @ APAVE </strong> - (Ghana and Equatorial Guinea)</p>
+        <p>2016-2017</p>
+        <p>-<strong> Mechanical engineer @VITEK </strong> - (TIRZ 'Bunardzik', Skopje)</p>
+        <p>2017-Present</p>
+        <p>-<strong> Head of maintenance dept. @VITEK </strong> - (TIRZ 'Bunardzik', Skopje)</p>
+          <p class="skills">I am skilled with: <br> - Mechanical design: <strong>Solidworks</strong>,<strong> Python</strong> programing language, <strong>MS Office</strong> </p>
+          <br>
+          <hr>
+          <h6 class="mechanical-story">  I am currently a team leader of a 5man team, in trusted with equipment maintenance, maintenance planning,
+              measuring equipment, documentation and history.</h6>
+
+      </ol>
+  </div>
+  <div class="tab-pane fade show tabcontent" id="goals" role="tabpanel" >
+      <br>
+      <br>
+      <br>
+
+  <h6 class="goals-story">I will never stop learning, I will never know everything and I will always remember the days I knew nothing, I will try to communicate as much as possible, I won't only do what I am told I will take initiative, I believe in  making decisions, I believe in positive outcome,
+      I religiously believe in <a href="https://en.wikipedia.org/wiki/Polymath">polymathisam</a> and I am seeker of <a href="https://www.headspace.com/articles/flow-state">flow</a>. What I lack in intellect I will make up with hard work, if I can't be great I will make sure to recognize greatness in others,
+      I am more motivated by self-growth than money.
+  </h6>
+    <br>
+    <br>
+      <br>
+      <br>
+      <hr>
+
+  </div>
+
+    <div class="tab-pane fade show tabcontent" id="hobbies" role="tabpanel" >
+        <h5 class="project-tab-title">Some personal projects: </h5>
+
+        <ol>
+            <p> - <strong>Python(tkinker & postgresql)</strong> desktop app that follows spare parts in stock.</p>
+            <p> - <strong>Python(tkinter)</strong> raspbian <a href="https://github.com/miloshIra/Projects/tree/master/Vitek-mag">app</a> that compares box numbers and stores them.</p>
+            <p> - <strong>Python(tkinter) desktop</strong> <a href="https://github.com/miloshIra/Projects/tree/master/SplitCrop">app</a> that splits photos.</p>
+
+        </ol>
+         <h5 class="project-tab-title">Projects in progress:</h5>
+
+        <ol>
+            <p> - <strong>Python(flask & mongoDB)</strong> blog web <a href="https://github.com/miloshIra/webStuff/tree/master/blog-flask">app</a>.</p>
+            <p> - <strong>Python(tkinter), Solidworks, Arduino, 3D printed</strong> SCARA robotics arm.</p>
+        </ol>
+        <br>
+        <br>
+        <hr>
+        <h6 style="text-align:center"> Even tho some of them are used for my work, they were not developed as work assignments
+            I am working on them at my own pace, mostly to learn and to make my life easier.</h6>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
