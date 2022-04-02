@@ -1,14 +1,6 @@
-from flask import Flask
 
 
-
-app = Flask(__name__)
-app.secret_key = "Ira"
-
-
-@app.route('/')
-def home():
-    return "Home page"
-
-if __name__=='__main__':
-    app.run(port=1000, debug=True)
+number = "5234111321344446"
+for i in range(0,13):
+    print(i)
+    print(number[i] == number[i+1] == number[i+2] == number[i+3])
