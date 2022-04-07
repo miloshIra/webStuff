@@ -1,1 +1,3 @@
 FLASK_APP=mb.py
+AFLASK_ENV=development
+FLASK_ENV=production
