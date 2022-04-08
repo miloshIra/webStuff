@@ -1,41 +1,88 @@
-import json
-from PIL import Image
-import requests
+from datetime import datetime, timedelta
+import unittest
 
-######### GET CHAMPIONS DATA #######################
-# response = requests.get('https://ddragon.leagueoflegends.com/cdn/12.5.1/data/en_US/champion.json')
-
-
-########## GET USER PUUID BY ACCOUNT NAME #####################
-# get_user = requests.get('https://europe.api.riotgames.com/lol/summoner/v4/summoners/by-name/sevenxblades?api_key=RGAPI-2ac767af-3454-453b-a638-360bfbd8fefe')
-
-########## GET MATCH DATA BY PUUID ############################
-match_data = requests.get('https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/YA8Rdc9B5E_2pRPTryQS3oMsJI3gNWH1MJhnCPdMgITv3wckL25NUrycnw1JoSOksj84P2jjeCqrmw/ids?api_key=RGAPI-2ac767af-3454-453b-a638-360bfbd8fefe')
-# print(get_user.text) /lol/match/v5/matches/by-puuid/YA8Rdc9B5E_2pRPTryQS3oMsJI3gNWH1MJhnCPdMgITv3wckL25NUrycnw1JoSOksj84P2jjeCqrmw/ids
+from app import app, db
+from app.models import User, Post
 
 
-#json_data = json.loads(response.text)
-#json_user_data = json.loads(get_user.text)
-print(match_data.text)
+class UserModelCase(unittest.TestCase):
+    def setUp(self):
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
+        db.create_all()
 
-# print(json_user_data['puuid'])
+    def tearDown(self):
+        db.session.remove()
+        db.drop_all()
 
-# print(json_data['data']['Graves'])
+    def test_password_hashing(self):
+        u = User(username='Poky')
+        u.set_password('cat')
+        self.assertFalse(u.check_password('dog'))
+        self.assertTrue(u.check_password('cat'))
 
-{'version': '12.5.1', 'id': 'Graves', 'key': '104', 'name': 'Graves', 'title': 'the Outlaw',
- 'blurb': 'Malcolm Graves is a renowned mercenary, gambler, and thief—a wanted man in every city and empire he has visited. Even though he has an explosive temper, he possesses a strict sense of criminal honor, often enforced at the business end of his...',
- 'info': {'attack': 8, 'defense': 5, 'magic': 3, 'difficulty': 3},
- 'image': {'full': 'Graves.png', 'sprite': 'champion1.png', 'group': 'champion', 'x': 336, 'y': 0, 'w': 48, 'h': 48},
- 'tags': ['Marksman'], 'partype': 'Mana',
- 'stats': {'hp': 555, 'hpperlevel': 92, 'mp': 325, 'mpperlevel': 40, 'movespeed': 340, 'armor': 33,
-           'armorperlevel': 3.4, 'spellblock': 32, 'spellblockperlevel': 1.25, 'attackrange': 425, 'hpregen': 8,
-           'hpregenperlevel': 0.7, 'mpregen': 8, 'mpregenperlevel': 0.7, 'crit': 0, 'critperlevel': 0,
-           'attackdamage': 68, 'attackdamageperlevel': 4, 'attackspeedperlevel': 2.6, 'attackspeed': 0.475}}
+    def test_avatar(self):
+        u = User(username='john', email='john@example.com')
+        self.assertEqual(u.avatar(128), ('https://www.gravatar.com/avatar/'
+                                         'd4c74594d841139328695756648b6bd6'
+                                         '?d=identicon&s=128'))
 
-# champion_id = json_data['data']['Graves']['id']
-# print(champion_id)
-#
-# image = json_data['data']['Graves']['image']['full']
-# print(type(image))
-# im = Image.open(image)
-# im.show()
+    def test_follow(self):
+        u1 = User(username='John', email='john@example.com')
+        u2 = User(username='Poky', email='poky@example.com')
+        db.session.add(u1)
+        db.session.add(u2)
+        db.session.commit()
+        self.assertEqual(u1.followed.all(), [])
+        self.assertEqual(u1.followers.all(), [])
+
+        u1.follow(u2)
+        db.session.commit()
+        self.assertTrue(u1.is_following(u2))
+        self.assertEqual(u1.followed.count(), 1)
+        self.assertEqual(u1.followed.first().username, 'Poky')
+        self.assertEqual(u2.followers.count(), 1)
+        self.assertEqual(u2.followers.first().username, 'John')
+
+        u1.unfollow(u2)
+        db.session.commit()
+        self.assertFalse(u1.is_following(u2))
+        self.assertEqual(u1.followed.count(), 0)
+        self.assertEqual(u2.followers.count(), 0)
+
+    def test_follow_posts(self):
+        u1 = User(username='John', email='john@example.com')
+        u2 = User(username='Poky', email='poky@example.com')
+        u3 = User(username='Mary', email='mary@example.com')
+        u4 = User(username='David', email='david@example.com')
+        db.session.add_all([u1, u2, u3, u4])
+
+        now = datetime.utcnow()
+        p1 = Post(body="post from John", author=u1,
+                  timestamp=now + timedelta(seconds=1))
+        p2 = Post(body="post from Poky", author=u2,
+                  timestamp=now + timedelta(seconds=4))
+        p3 = Post(body="post from Mary", author=u3,
+                  timestamp=now + timedelta(seconds=3))
+        p4 = Post(body="post from David", author=u4,
+                  timestamp=now + timedelta(seconds=2))
+        db.session.add_all([p1, p2, p3, p4])
+        db.session.commit()
+
+        u1.follow(u2)
+        u1.follow(u4)
+        u2.follow(u3)
+        u3.follow(u4)
+        db.session.commit()
+
+        f1 = u1.followed_posts().all()
+        f2 = u2.followed_posts().all()
+        f3 = u3.followed_posts().all()
+        f4 = u4.followed_posts().all()
+        self.assertEqual(f1, [p2, p4, p1])
+        self.assertEqual(f2, [p2, p3])
+        self.assertEqual(f3, [p3, p4])
+        self.assertEqual(f4, [p4])
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
