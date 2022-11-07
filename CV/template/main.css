@@ -10,8 +10,23 @@
     margin-top: 150px;
     margin-left: 20px;
     font-family: 'Baloo Bhaijaan 2', cursive;
-
 }
+
+body {
+            background-image:url("asd.jpg");
+         }
+
+.row {
+  border: 4px;
+  border-style: solid;
+  border-color: #e8e7e7;
+  padding-top: 15px;
+  padding-bot: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+}
+
 
 .education {
     text-align: center;
